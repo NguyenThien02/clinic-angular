@@ -70,8 +70,8 @@ export class ListDoctorComponent implements OnInit{
     }
   }
 
-  searchServices(){
+  searchDoctors() {
     debugger
-    this.getAllDoctors(this.page, this.limit, this.selectedSpecialtyId);
+    this.getAllDoctors(this.page, this.limit,this.selectedSpecialtyId);
   }
 }

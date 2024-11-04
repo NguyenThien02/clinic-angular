@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #e0e0e0; /* Light grey background for contrast */
+    margin: 0;
+}
+
+.profile-container {
+    display: flex;
+    width: 80%;
+    max-width: 1000px;
+    margin: auto;
+    border: 2px solid #72ff8e;
+    border-radius: 8px;
+    padding: 40px; /* Padding to create white border effect */
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image img {
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.profile-details {
+    margin-left: 30px;
+    color: #333;
+}
+
+.doctor-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #666;
+}
+
+.doctor-name {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #48ff8e;
+    margin: 5px 0;
+}
+
+.doctor-position {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.section-title {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.experience-section h4 {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 12px 0 6px;
+}
+
+.experience-section ul {
+    list-style-type: none;
+    padding-left: 10px;
+}
+
+.experience-section ul li {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.6;
+}
