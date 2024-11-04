@@ -1,0 +1,41 @@
+header {
+    background-color: rgba(255, 255, 255, 0.9); // Nền header sáng hơn
+    color: rgb(0, 40, 238);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Thêm bóng cho header
+}
+
+.navbar {
+    background-color: rgba(72, 255, 142, 0.8) !important; // Nền navbar
+    transition: background-color 0.3s ease; // Hiệu ứng chuyển màu khi hover
+
+    &:hover {
+        background-color: rgba(72, 255, 142, 1); // Màu nền khi hover
+    }
+}
+
+.navbar .container {
+    padding: 0; // Bỏ padding để căn chỉnh tốt hơn
+}
+
+.navbar .navbar-brand {
+    color: rgb(0, 42, 255);
+    font-weight: bold; // Làm nổi bật tên thương hiệu
+}
+
+.navbar .navbar-nav .nav-link {
+    color: rgb(0, 42, 255);
+    border-radius: 18px;
+    padding: 10px 20px; // Tăng padding cho nút
+    transition: background-color 0.3s ease, color 0.3s ease; // Hiệu ứng chuyển màu
+
+    &:hover {
+        background-color: rgba(0, 42, 255, 0.1); // Màu nền khi hover
+        color: rgb(0, 42, 255); // Màu chữ khi hover
+    }
+}
+
+.navbar .navbar-nav .nav-link.active {
+    background-color: rgb(55, 3, 245) !important; // Màu nền cho liên kết active
+    color: white !important; // Màu chữ cho liên kết active
+    
+}

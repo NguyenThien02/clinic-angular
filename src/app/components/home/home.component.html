@@ -1,0 +1,20 @@
+<app-header></app-header>
+<section class="banner">
+    <div class="banner-content">
+        <h1>Đây là trang Home</h1>
+        <p>Trang này hiển thị danh sách các dịch vụ y tế của phòng khám</p>
+        <p>Các bạn có thể xem giá dịch vụ tại đây</p>
+    </div>
+</section>
+
+<div class="search-box">
+    <select class="form-control service-specialty"
+        [(ngModel)]="selectedSpecialtyId">
+        <option [value]="0">Tất cả</option>
+        <option *ngFor="let specialty of specialties" 
+            [value]="specialty.id">
+            {{ specialty.name }}
+        </option>
+    </select>
+    <button class="btn btn-primary ml-2">Tìm kiếm</button>
+</div>
