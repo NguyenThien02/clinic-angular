@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { ListDoctorComponent } from './list-doctor/list-doctor.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     LoginComponent,
     RegisterComponent,
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    ListDoctorComponent
   ],
   imports: [
     BrowserModule,

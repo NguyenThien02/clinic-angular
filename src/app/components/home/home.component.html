@@ -16,5 +16,20 @@
             {{ specialty.name }}
         </option>
     </select>
-    <button class="btn btn-primary ml-2">Tìm kiếm</button>
+    <button class="btn btn-primary ml-2" (click)="searchServices()">Tìm kiếm</button>
+</div>
+<div class="row service-row">
+    <div class="col-lg-4 col-md-6" *ngFor="let service of services">
+        <div class="service-card">
+            <h3 class="service-name">{{ service.name }}</h3>
+            <p class="service-price">Giá: {{ service.price }} VND</p>
+            <p class="service-insurancePrice">Giá BHYT: {{ service.insurancePrice }} VND</p>
+        </div>
+    </div>
+</div>
+<div class="pagination">
+    <button (click)="changePage(page - 1)" [disabled]="page === 0">Previous</button>
+    <button *ngFor="let p of pages" (click)="changePage(p)" [class.active]="p === page">{{ p + 1
+        }}</button>
+    <button (click)="changePage(page + 1)" [disabled]="page === totalPages - 1">Next</button>
 </div>
