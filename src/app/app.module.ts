@@ -12,6 +12,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { ListDoctorComponent } from './components/list-doctor/list-doctor.component';
 import { DoctorDetailComponent } from './components/doctor-detail/doctor-detail.component';
+import { AdminHomeComponent } from './components/admin-components/admin-home/admin-home.component';
+import { AdminHeaderComponent } from './components/admin-components/admin-header/admin-header.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { DoctorDetailComponent } from './components/doctor-detail/doctor-detail.
     AppComponent,
     HeaderComponent,
     ListDoctorComponent,
-    DoctorDetailComponent
+    DoctorDetailComponent,
+    AdminHomeComponent,
+    AdminHeaderComponent
   ],
   imports: [
     BrowserModule,

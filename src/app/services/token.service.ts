@@ -20,14 +20,14 @@ export class TokenService {
     setToken(token: string): void {        
         this.localStorage?.setItem(this.TOKEN_KEY, token);             
     }
-    getUserId(): number {
-        let token = this.getToken();
-        if (!token) {
-            return 0;
-        }
-        let userObject = this.jwtHelperService.decodeToken(token);
-        return 'userId' in userObject ? parseInt(userObject['userId']) : 0;
-    }
+    // getUserId(): number {
+    //     let token = this.getToken();
+    //     if (!token) {
+    //         return 0;
+    //     }
+    //     let userObject = this.jwtHelperService.decodeToken(token);
+    //     return 'userId' in userObject ? parseInt(userObject['userId']) : 0;
+    // }
     
       
     removeToken(): void {

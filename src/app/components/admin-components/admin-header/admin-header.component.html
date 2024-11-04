@@ -1,0 +1,25 @@
+<div class="sidebar">
+    <div class="profile">
+        <img src="assets/images1.jpeg" alt="avatar" class="profile-img">
+        <p class="profile-name">{{ userResponse?.full_name }}</p>
+        <p *ngIf="userResponse?.id" class="profile-name">ID: {{ userResponse?.id }}</p> 
+    </div>
+    <ul class="menu">
+        <li [class.active]="isActive('home')">
+            <a routerLink="/admin/home">Thông tin admin</a>
+        </li>
+        <li [class.active]="isActive('edit')">
+            <a routerLink="/admin/edit">Chỉnh sửa thông tin admin</a>
+        </li>
+        <li [class.active]="isActive('user-management')">
+            <a routerLink="/admin/user-management">Quản lý user</a>
+        </li>
+        <li [class.active]="isActive('doctor-management')">
+            <a routerLink="/admin/doctor-management">Quản lý doctor</a>
+        </li>
+        <li class="logout" (click)="confirmLogout()"> 
+            <a href="javascript:void(0)">Đăng xuất</a>
+        </li>
+        
+    </ul>
+</div>
