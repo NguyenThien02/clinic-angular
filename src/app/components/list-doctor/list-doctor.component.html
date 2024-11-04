@@ -1,1 +1,40 @@
-<p>list-doctor works!</p>
+<app-header></app-header>
+<section class="banner">
+    <div class="banner-content">
+        <h1>Danh sách Bác sĩ</h1>
+        <p>Trang này hiển thị danh sách các bác sĩ của phòng khám</p>
+        <p>Các bạn có thể xem chuyên khoa phụ trách của các bác sĩ tại đây</p>
+    </div>
+</section>
+
+<div class="search-box">
+    <select class="form-control service-specialty"
+        [(ngModel)]="selectedSpecialtyId">
+        <option [value]="0">Tất cả</option>
+        <option *ngFor="let specialty of specialties" 
+            [value]="specialty.id">
+            {{ specialty.name }}
+        </option>
+    </select>
+    <button class="btn btn-primary ml-2">Tìm kiếm</button>
+</div>
+
+<div class="container">
+    <div class="row doctor-row">
+        <div class="col-lg-4 col-md-5 col-sm-6" *ngFor="let doctor of listDoctors">
+            <div class="doctor-card">
+                <img [src]="doctor.image_url" alt="Doctor Image" class="doctor-image">
+                <h3 class="doctor-name">{{doctor.user_response.full_name}}</h3>
+                <p class="doctor-specialty">Chuyên khoa: {{doctor.specialty.name}}</p>
+                <button class="btn btn-primary" [routerLink]="['/doctorDetail', doctor.user_response.id]">Xem Chi tiết</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pagination">
+    <button (click)="changePage(page - 1)" [disabled]="page === 0">Previous</button>
+    <button *ngFor="let p of pages" (click)="changePage(p)" [class.active]="p === page">{{ p + 1
+        }}</button>
+    <button (click)="changePage(page + 1)" [disabled]="page === totalPages - 1">Next</button>
+</div>

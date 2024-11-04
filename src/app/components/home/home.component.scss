@@ -32,7 +32,7 @@
   width: 100%;
   max-width: 300px; // Giảm chiều rộng tối đa của search-box
   margin: 0 auto; // Căn giữa toàn bộ search-box trên trang
-  margin-top: 30px;
+  margin-top: 10px;
 
   .form-control {
     flex: 1; // Để select chiếm không gian còn lại
@@ -137,3 +137,4 @@
       }
   }
 }
+
