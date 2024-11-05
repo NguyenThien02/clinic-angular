@@ -11,7 +11,7 @@ import { DoctorService } from 'src/app/services/doctor.service';
 })
 export class DoctorDetailComponent implements OnInit{
   doctorResponse?: DoctorResponse;
-  doctorId: number = 0;
+  userId: number = 0;
 
   constructor(
     private doctorService: DoctorService,
@@ -19,21 +19,21 @@ export class DoctorDetailComponent implements OnInit{
   ){}
 
   ngOnInit() {
-    this.getDoctorId();
+    this.getUserId();
     this.getDoctorResponse();
   }
-  getDoctorId() {
+  getUserId() {
     debugger
-    const doctorIdParam = this.route.snapshot.paramMap.get('doctorId');
-    if (doctorIdParam !== null) {
-      const doctorId = +doctorIdParam;  // Chuyển thành số nếu không null
-      this.doctorId = doctorId;
+    const userIdParam = this.route.snapshot.paramMap.get('userId');
+    if (userIdParam !== null) {
+      const userId = +userIdParam;  // Chuyển thành số nếu không null
+      this.userId = userId;
     } else {
       console.warn('doctor ID không tồn tại trong route parameters');
     }
   }
   getDoctorResponse(){
-    this.doctorService.getDoctorById(this.doctorId).subscribe({
+    this.doctorService.getDoctorByUserId(this.userId).subscribe({
       next: (response: any) => {
         debugger
         response.image_url = `${environment.apiBaseUrl}/doctors/images/${response.image_url}`;

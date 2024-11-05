@@ -1,0 +1,72 @@
+.container-fluid {
+    display: flex;
+    height: 100vh;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 40px;
+    background-color: #ecf0f1;
+    border-left: 1px solid #ddd; /* Thay đổi sang border-left nếu bạn muốn tạo khoảng cách bên trái */
+    height: 100vh;
+    overflow-y: auto; /* Cho phép cuộn nếu nội dung vượt quá chiều cao viewport */
+}
+
+.form-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Khoảng cách giữa các phần */
+}
+
+.section-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2c3e50;
+}
+
+.divider {
+    border: 0;
+    height: 2px;
+    background-color: #007bff; /* Màu xanh dương */
+    margin: 20px 0; /* Khoảng cách trên dưới cho dòng phân cách */
+}
+
+/* Tạo khoảng cách giữa các nút */
+.btn-space {
+    margin-right: 10px; 
+    margin-top: 10px; /* Điều chỉnh giá trị tùy theo ý thích */
+}
+
+/* Đảm bảo nút cuối cùng không bị ảnh hưởng */
+.btn-space:last-child {
+    margin-right: 0;
+}
+
+/* Điều chỉnh khoảng cách giữa các trường nhập */
+.form-group {
+    margin-bottom: 15px; /* Khoảng cách giữa các trường nhập */
+}
+
+input[type="file"] {
+    margin-top: 10px; /* Tạo khoảng cách cho input file */
+}
+
+/* Tăng cường hiển thị của textarea */
+textarea.form-control {
+    resize: none; /* Ngăn cản việc thay đổi kích thước */
+}
+
+/* Thêm hover effect cho button */
+.btn-primary:hover {
+    background-color: #0056b3; /* Màu nền khi hover */
+    border-color: #004085; /* Màu viền khi hover */
+}
+
+.btn-secondary:hover {
+    background-color: #6c757d; /* Màu nền khi hover */
+    border-color: #5a6268; /* Màu viền khi hover */
+}

@@ -6,20 +6,20 @@
     </div>
     <ul class="menu">
         <li [class.active]="isActive('home')">
-            <a routerLink="/admin/home">Thông tin admin</a>
+            <a routerLink="/user/home">Thông tin user</a>
         </li>
         <li [class.active]="isActive('update')">
-            <a routerLink="/admin/update">Chỉnh sửa thông tin admin</a>
+            <a routerLink="/user/update">Chỉnh sửa thông tin user</a>
         </li>
-        <li [class.active]="isActive('user-management')">
-            <a routerLink="/admin/user-management">Quản lý user</a>
+        
+        <li  [class.active]="isActive('schedule')">
+            <a routerLink="/user/schedule">Đăng ký lịch khám</a>
         </li>
-        <li [class.active]="isActive('doctor-manage')">
-            <a routerLink="/admin/doctor-manage">Quản lý doctor</a>
+        <li  [class.active]="isActive('getSchedule')">
+            <a routerLink="/user/getSchedule">Xem lịch khám</a>
         </li>
         <li class="logout" (click)="confirmLogout()"> 
             <a href="javascript:void(0)">Đăng xuất</a>
         </li>
-        
     </ul>
 </div>

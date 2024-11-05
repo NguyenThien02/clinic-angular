@@ -1,0 +1,48 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="container-fluid" *ngIf="userResponse">
+        <app-doctor-header></app-doctor-header>
+        <div class="main-content">
+            <div class="form-section">
+                <h2 class="section-title">Thông tin chi tiết Doctor</h2>
+                <hr class="divider">
+                <div class="profile-container" *ngIf="doctorResponse">
+                    <div class="profile-image">
+                        <img [src]="doctorResponse.image_url" alt="Doctor Image">
+                    </div>
+                    <div class="profile-details">
+                        <h2 class="doctor-name">{{doctorResponse.user_response.full_name}}</h2>
+                        <p><strong>Chuyên khoa:</strong> {{ doctorResponse.specialty.name }}</p>
+
+                        <h3 class="section-title1">Thông tin cá nhân</h3>
+
+                        <p><strong>Số điện thoại:</strong> {{ doctorResponse.user_response.phone_number }}</p>
+                        <p><strong>Địa chỉ:</strong> {{ doctorResponse.user_response.address }}</p>
+                        <p><strong>Ngày sinh:</strong> {{ doctorResponse.user_response.birthday | date: 'dd/MM/yyyy' }}
+                        </p>
+
+                        <h3 class="section-title1">Kinh nghiệm chuyên môn</h3>
+                        <div class="experience-section">
+                            <h4>Quá trình đào tạo</h4>
+                            <ul>
+                                <li *ngFor="let item of doctorResponse.training_process.split('+')| slice:1">
+                                    - {{ item.trim() }}
+                                </li>
+
+                            </ul>
+
+                            <h4>Khám và điều trị</h4>
+                            <ul>
+                                <li *ngFor="let item of doctorResponse.job_description.split('+')| slice:1">
+                                    - {{ item.trim() }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,104 @@
+.container-fluid {
+    display: flex;
+    height: 100vh;
+}
+.main-content {
+    flex-grow: 1;
+    padding: 40px;
+    background-color: #ecf0f1;
+    top: 0;
+  width: 250px; /* Điều chỉnh tùy ý */
+  z-index: 1000;
+  background-color:  #ecf0f1;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-right: 1px solid #ddd;
+  height: 100vh;
+  overflow-y: auto; /* Cho phép cuộn nếu nội dung vượt quá chiều cao viewport */
+}
+.form-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2c3e50;
+}
+
+.divider {
+    border: 0;
+    height: 2px;
+    background-color: #007bff; /* Màu xanh dương */
+    margin: 20px 0; /* Khoảng cách trên dưới cho dòng phân cách */
+}
+
+/* Thiết lập chung cho các nhãn và chi tiết người dùng */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #34495e;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.user-detail {
+    font-size: 18px;
+    font-weight: normal;
+    color: #2c3e50;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+/* Tùy chỉnh cho các tiêu đề và các thành phần phụ */
+h2, h3 {
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Hiển thị các header component */
+app-header, app-admin-service {
+    width: 100%;
+    display: block;
+}
+
+/* Thiết lập responsive cho thiết bị nhỏ */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 20px;
+    }
+    
+    .form-section {
+        padding: 20px;
+    }
+    
+    .section-title {
+        font-size: 22px;
+    }
+    
+    label {
+        font-size: 14px;
+    }
+    
+    .user-detail {
+        font-size: 16px;
+    }
+}
+/* Tạo khoảng cách giữa các nút */
+.btn-space {
+    margin-right: 10px; /* Điều chỉnh giá trị tùy theo ý thích */
+}
+
+/* Đảm bảo nút cuối cùng không bị ảnh hưởng */
+.btn-space:last-child {
+    margin-right: 0;
+}

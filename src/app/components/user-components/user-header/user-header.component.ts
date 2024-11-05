@@ -5,23 +5,23 @@ import { TokenService } from 'src/app/services/token.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-admin-header',
-  templateUrl: './admin-header.component.html',
-  styleUrls: ['./admin-header.component.scss']
+  selector: 'app-user-header',
+  templateUrl: './user-header.component.html',
+  styleUrls: ['./user-header.component.scss']
 })
-export class AdminHeaderComponent {
+export class UserHeaderComponent {
   userResponse?: UserResponse;
 
   constructor(
     private userService: UserService,
     private tokenService: TokenService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.userResponse = this.userService.getUserResponseFromLocalStorage();
   }
-//Hàm sẽ trả về true nếu đường dẫn hiện tại chứa route đã truyền vào.
+
   isActive(route: string): boolean {
     return this.router.url.includes(route); // Sử dụng Router để kiểm tra route
   }
@@ -31,9 +31,9 @@ export class AdminHeaderComponent {
       this.outlog();
     }
   }
-  outlog() {
+  outlog(){
     this.tokenService.removeToken();
-    localStorage.removeItem('user');
+    localStorage.removeItem('user')
     this.router.navigate(['/']);
   }
 }

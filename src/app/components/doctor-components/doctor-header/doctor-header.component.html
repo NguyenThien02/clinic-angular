@@ -1,0 +1,25 @@
+<div class="sidebar" *ngIf="doctorResponse">
+    <div class="profile">
+        <img [src]="doctorResponse.image_url" alt="avatar" class="profile-img">
+        <p class="profile-name">{{ userResponse?.full_name }}</p>
+        <p *ngIf="userResponse?.id" class="profile-name">USER ID: {{ userResponse?.id }}</p> 
+    </div>
+    <ul class="menu">
+        <li [class.active]="isActive('home')">
+            <a routerLink="/doctor/home">Thông tin doctor</a>
+        </li>
+        <li [class.active]="isActive('update')">
+            <a routerLink="/doctor/update">Chỉnh sửa thông tin doctor</a>
+        </li>
+        <li [class.active]="isActive('schedule')">
+            <a routerLink="/doctor/schedule">Quản lý lịch khám</a>
+        </li>
+        <li [class.active]="isActive('getProfile')">
+            <a routerLink="/doctor/getProfile">Chỉnh sửa bệnh án</a>
+        </li>
+        <li class="logout" (click)="confirmLogout()"> 
+            <a href="javascript:void(0)">Đăng xuất</a>
+        </li>
+        
+    </ul>
+</div>

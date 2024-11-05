@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="container-fluid" *ngIf="userResponse">
+        <app-admin-header></app-admin-header>
+        <div class="main-content">
+            <div class="form-section">
+                <h2 class="section-title">Quản lý doctor</h2>
+                <button class="btn btn-primary" routerLink="/admin/doctor-manage/register">Đăng ký Doctor</button>
+                <hr class="divider">
+                <table class="table user-table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Họ và tên</th>
+                            <th>Số điện thoại</th>
+                            <th>Địa chỉ</th>
+                            <th>Chuyên khoa</th>
+                            <th>Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let doctor of listDoctors">
+                            <td>{{doctor.id}}</td>
+                            <td>{{doctor.user_response.full_name}}</td>
+                            <td>{{doctor.user_response.phone_number}}</td>
+                            <td>{{doctor.user_response.address}}</td>
+                            <td>{{doctor.specialty.name}}</td>
+                            <td>
+                                <button class="btn btn-primary" [routerLink]="['/doctor-detail', doctor.user_response.id]">Chi tiết</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>   
+                <div class="pagination">
+                    <button (click)="changePage(page - 1)" [disabled]="page === 0">Previous</button>
+                    <button *ngFor="let p of pages" (click)="changePage(p)" [class.active]="p === page">{{ p + 1
+                        }}</button>
+                    <button (click)="changePage(page + 1)" [disabled]="page === totalPages - 1">Next</button>
+                </div>           
+            </div>
+        </div>
+    </div>
+</div>

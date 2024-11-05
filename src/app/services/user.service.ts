@@ -5,6 +5,8 @@ import { RegisterDTO } from "../dtos/register.dto";
 import { Observable } from "rxjs";
 import { LoginDTO } from "../dtos/login.dto";
 import { UserResponse } from "../responses/user.responses";
+import { UpdateUserDTO } from "../dtos/updateUser.dto";
+import { PassWordDTO } from "../dtos/password.dto";
 
 @Injectable({
     providedIn: 'root'
@@ -13,6 +15,7 @@ export class UserService {
   private apiRegister = `${environment.apiBaseUrl}/users/register`;
   private apiLogin = `${environment.apiBaseUrl}/users/login`;
   private apiUserDetail = `${environment.apiBaseUrl}/users/details`;
+  private apiUsers = `${environment.apiBaseUrl}/users`;
 
   constructor(private http: HttpClient) { }
 
@@ -62,4 +65,16 @@ export class UserService {
       return null; // Return null or handle the error as needed
     }
   }
+  updateUser(updateUserDTO: UpdateUserDTO, id: number): Observable<any> {
+    debugger;
+    return this.http.put(`${this.apiUsers}/${id}`, updateUserDTO);
+  }
+  updatePassword(passWordDTO: PassWordDTO, id: number): Observable<any> {
+    debugger;
+    return this.http.put(`${this.apiUsers}/updatePassword/${id}`, passWordDTO);
+  }
+
+  getUserResponesDoctor(){
+    return this.http.get<any[]>(`${this.apiUsers}/user-doctor`);
+}
 }  

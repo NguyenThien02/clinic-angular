@@ -54,8 +54,8 @@ export class LoginComponent {
       password: this.password,
       role_id: this.selectedRole?.id ?? 1
     };
-    // this.tokenService.removeToken();
-    // localStorage.removeItem('user');
+    this.tokenService.removeToken();
+    localStorage.removeItem('user');
     this.userService.login(loginDTO).subscribe({
       next: (response: any) => {
         debugger;
@@ -90,7 +90,8 @@ export class LoginComponent {
       },
       error: (error: any) => {
         debugger;
-        alert(error.error.message);
+        debugger;
+      alert('Đăng nhật không thành công: ' + (error.error.message || 'Vui lòng thử lại!'));
       }
     });
   }

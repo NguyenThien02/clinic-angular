@@ -17,13 +17,12 @@
         <div class="experience-section">
             <h4>Quá trình đào tạo</h4>
             <ul>
-                
                 <li>{{doctorResponse.training_process}}</li>
             </ul>
 
-            <h4>Quá trình công tác</h4>
+            <h4>Khám và điều trị</h4>
             <ul>
-                <li *ngFor="let item of doctorResponse.job_description.split('-')| slice:1">
+                <li *ngFor="let item of doctorResponse.job_description.split('+')| slice:1">
                     - {{ item.trim() }}
                 </li>
             </ul>

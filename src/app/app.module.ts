@@ -14,6 +14,16 @@ import { ListDoctorComponent } from './components/list-doctor/list-doctor.compon
 import { DoctorDetailComponent } from './components/doctor-detail/doctor-detail.component';
 import { AdminHomeComponent } from './components/admin-components/admin-home/admin-home.component';
 import { AdminHeaderComponent } from './components/admin-components/admin-header/admin-header.component';
+import { AdminUpdateComponent } from './components/admin-components/admin-update/admin-update.component';
+import { DoctorHeaderComponent } from './components/doctor-components/doctor-header/doctor-header.component';
+import { DoctorHomeComponent } from './components/doctor-components/doctor-home/doctor-home.component';
+import { DoctorUpdateComponent } from './components/doctor-components/doctor-update/doctor-update.component';
+import { UserHeaderComponent } from './components/user-components/user-header/user-header.component';
+import { UserHomeComponent } from './components/user-components/user-home/user-home.component';
+import { UserUpdateComponent } from './components/user-components/user-update/user-update.component';
+import { UpdatePasswordComponent } from './components/update-password/update-password.component';
+import { AdminDoctorManageComponent } from './components/admin-components/admin-doctor-manage/admin-doctor-manage.component';
+import { AdminDoctorRegisterComponent } from './components/admin-components/admin-doctor-register/admin-doctor-register.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +35,17 @@ import { AdminHeaderComponent } from './components/admin-components/admin-header
     ListDoctorComponent,
     DoctorDetailComponent,
     AdminHomeComponent,
-    AdminHeaderComponent
+    AdminHeaderComponent,
+    AdminUpdateComponent,
+    DoctorHeaderComponent,
+    DoctorHomeComponent,
+    DoctorUpdateComponent,
+    UserHeaderComponent,
+    UserHomeComponent,
+    UserUpdateComponent,
+    UpdatePasswordComponent,
+    AdminDoctorManageComponent,
+    AdminDoctorRegisterComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="container-fluid" *ngIf="userResponse">
+        <app-admin-header></app-admin-header>
+        <div class="main-content">
+            <div class="form-section">
+                <h2 class="section-title">Chỉnh sửa thông tin Admin</h2>
+                <hr class="divider">
+                <div class="form-group">
+                    <label>Họ và tên</label>
+                    <input type="text" 
+                        class="form-control" 
+                        id="fullName" 
+                        name="fullName"
+                        [(ngModel)]="fullName"
+                        placeholder="{{ userResponse.full_name }}">
+                    <div class="divider-nospace"></div>
+                </div>
+                <div class="form-group">
+                    <label for="date-of-birth">Ngày tháng năm sinh</label>
+                    <input type="date" 
+                    class="form-control" 
+                    id="date-of-birth"
+                    name="dateOfBirth" 
+                    [(ngModel)]="birthday">
+                    <div class="divider-nospace"></div>
+                </div>
+                <div class="form-group">
+                    <label>Địa chỉ</label>
+                    <input type="text" 
+                        class="form-control" 
+                        id="address" 
+                        name="address"
+                        [(ngModel)]="address"
+                        placeholder="{{ userResponse.address }}">
+                    <div class="divider-nospace"></div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-space" (click)="saveUpdateUser()">Lưu</button>
+                <button type="button" class="btn btn-secondary btn-space" routerLink="/update-password">Thay đổi mật khẩu</button>
+            </div>
+        </div>
+    </div>
+</div>
