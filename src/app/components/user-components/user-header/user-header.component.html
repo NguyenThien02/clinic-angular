@@ -12,11 +12,11 @@
             <a routerLink="/user/update">Chỉnh sửa thông tin user</a>
         </li>
         
-        <li  [class.active]="isActive('schedule')">
-            <a routerLink="/user/schedule">Đăng ký lịch khám</a>
+        <li  [class.active]="isActive('create-schedule')">
+            <a routerLink="/user/create-schedule">Đăng ký lịch khám</a>
         </li>
-        <li  [class.active]="isActive('getSchedule')">
-            <a routerLink="/user/getSchedule">Xem lịch khám</a>
+        <li  [class.active]="isActive('get-schedule')">
+            <a routerLink="/user/get-schedule">Xem lịch khám</a>
         </li>
         <li class="logout" (click)="confirmLogout()"> 
             <a href="javascript:void(0)">Đăng xuất</a>

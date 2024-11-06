@@ -1,0 +1,39 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="container-fluid">
+        <app-user-header></app-user-header>
+        <div class="main-content">
+            <div class="form-section">
+                <h2 class="section-title">Danh sách lịch khám</h2>
+                <hr class="divider">
+                <table class="pricing-table">
+                    <thead>
+                      <tr>
+                        <th class="sub-header">STT</th>
+                        <th class="sub-header">Tên người khám</th>
+                        <th class="sub-header">Số điện thoại</th>
+                        <th class="sub-header">Bác sĩ khám</th>
+                        <th class="sub-header">Ngày khám</th>
+                        <th class="sub-header">Thời gian</th>
+                        <th class="sub-header">Chức năng</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let schedule of schedules; let i = index">
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ schedule.user_name }}</td>
+                        <td>{{ schedule.user_phone }}</td>
+                        <td>{{ schedule.doctor_response.user_response.full_name }}</td>
+                        <td>{{ schedule.date }}</td>
+                        <td>{{ schedule.time_slot.startEnd }}</td>
+                        <td class="action-buttons">
+                            <button class="edit-button"  (click)="editSchedule(schedule.id)">Sửa</button>
+                            <button class="delete-button" (click)="deleteSchedule(schedule.id)">Xóa</button>
+                          </td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
