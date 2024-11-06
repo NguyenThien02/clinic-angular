@@ -16,6 +16,11 @@ import { AdminDoctorManageComponent } from "./components/admin-components/admin-
 import { AdminDoctorRegisterComponent } from "./components/admin-components/admin-doctor-register/admin-doctor-register.component";
 import { UserCreateScheduleComponent } from "./components/user-components/user-create-schedule/user-create-schedule.component";
 import { UserGetScheduleComponent } from "./components/user-components/user-get-schedule/user-get-schedule.component";
+import { DoctorScheduleManageComponent } from "./components/doctor-components/doctor-schedule-manage/doctor-schedule-manage.component";
+import { DoctorCreateProfileComponent } from "./components/doctor-components/doctor-create-profile/doctor-create-profile.component";
+import { DoctorAddServiceComponent } from "./components/doctor-components/doctor-add-service/doctor-add-service.component";
+import { DoctorProfileManageComponent } from "./components/doctor-components/doctor-profile-manage/doctor-profile-manage.component";
+import { ProfileDetailComponent } from "./components/profile-detail/profile-detail.component";
 
 
 const routes: Routes = [
@@ -25,6 +30,7 @@ const routes: Routes = [
     {path: 'list-doctors', component: ListDoctorComponent},
     {path: 'doctor-detail/:userId', component: DoctorDetailComponent},
     {path: 'update-password', component: UpdatePasswordComponent},
+    {path: 'profile-manage/profile-detail/:profileId', component: ProfileDetailComponent},
 
     {path: 'user/home', component: UserHomeComponent},
     {path: 'user/update', component: UserUpdateComponent},
@@ -33,7 +39,11 @@ const routes: Routes = [
 
     {path: 'doctor/home', component: DoctorHomeComponent},
     {path: 'doctor/update', component: DoctorUpdateComponent},
-
+    {path: 'doctor/schedule-manage', component: DoctorScheduleManageComponent},
+    {path: 'doctor/schedule-manage/create-profile/:scheduleId', component: DoctorCreateProfileComponent},
+    {path: 'doctor/schedule-manage/create-profile/add-service/:profileId', component: DoctorAddServiceComponent},
+    {path: 'doctor/profile-manage', component: DoctorProfileManageComponent},
+    
     {path: 'admin/home', component: AdminHomeComponent},
     {path: 'admin/update', component: AdminUpdateComponent},
     {path: 'admin/doctor-manage', component: AdminDoctorManageComponent},

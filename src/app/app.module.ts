@@ -23,12 +23,19 @@ import { AdminDoctorRegisterComponent } from './components/admin-components/admi
 import { DoctorHeaderComponent } from './components/doctor-components/doctor-header/doctor-header.component';
 import { DoctorHomeComponent } from './components/doctor-components/doctor-home/doctor-home.component';
 import { DoctorUpdateComponent } from './components/doctor-components/doctor-update/doctor-update.component';
+import { DoctorScheduleManageComponent } from './components/doctor-components/doctor-schedule-manage/doctor-schedule-manage.component';
+import { DoctorUpdateProfileComponent } from './components/doctor-components/doctor-update-profile/doctor-update-profile.component';
+import { DoctorCreateProfileComponent } from './components/doctor-components/doctor-create-profile/doctor-create-profile.component';
+import { DoctorAddServiceComponent } from './components/doctor-components/doctor-add-service/doctor-add-service.component';
 
 import { UserHeaderComponent } from './components/user-components/user-header/user-header.component';
 import { UserHomeComponent } from './components/user-components/user-home/user-home.component';
 import { UserUpdateComponent } from './components/user-components/user-update/user-update.component';
 import { UserCreateScheduleComponent } from './components/user-components/user-create-schedule/user-create-schedule.component';
 import { UserGetScheduleComponent } from './components/user-components/user-get-schedule/user-get-schedule.component';
+import { DoctorProfileManageComponent } from './components/doctor-components/doctor-profile-manage/doctor-profile-manage.component';
+
+
 
 
 @NgModule({
@@ -54,6 +61,11 @@ import { UserGetScheduleComponent } from './components/user-components/user-get-
     AdminDoctorRegisterComponent,
     UserCreateScheduleComponent,
     UserGetScheduleComponent,
+    DoctorScheduleManageComponent,
+    DoctorUpdateProfileComponent,
+    DoctorCreateProfileComponent,
+    DoctorAddServiceComponent,
+    DoctorProfileManageComponent,
   ],
   imports: [
     BrowserModule,

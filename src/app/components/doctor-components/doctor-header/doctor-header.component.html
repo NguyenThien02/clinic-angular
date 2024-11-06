@@ -11,11 +11,11 @@
         <li [class.active]="isActive('update')">
             <a routerLink="/doctor/update">Chỉnh sửa thông tin doctor</a>
         </li>
-        <li [class.active]="isActive('schedule')">
-            <a routerLink="/doctor/schedule">Quản lý lịch khám</a>
+        <li [class.active]="isActive('schedule-manage')">
+            <a routerLink="/doctor/schedule-manage">Quản lý lịch khám</a>
         </li>
-        <li [class.active]="isActive('getProfile')">
-            <a routerLink="/doctor/getProfile">Chỉnh sửa bệnh án</a>
+        <li [class.active]="isActive('profile-manage')">
+            <a routerLink="/doctor/profile-manage">Quản lý bệnh án</a>
         </li>
         <li class="logout" (click)="confirmLogout()"> 
             <a href="javascript:void(0)">Đăng xuất</a>

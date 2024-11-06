@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="container-fluid" >
+        <app-doctor-header></app-doctor-header>
+        <div class="main-content">
+            <div class="form-section">
+                <div class="breadcrumb">
+                    <a routerLink="/doctor/schedule-manage">Schedule</a> / Profile
+                </div>
+                <h2 class="section-title">Tạo hồ sơ bệnh án</h2>
+                <hr class="divider">
+                <div class="form-group">
+                    <label>Chuẩn đoán của bác sĩ</label>
+                    <textarea class="form-control" id="diagnosis" name="diagnosis" [(ngModel)]="diagnosis" rows="3"
+                        placeholder="Nhập chuẩn đoán chi tiết tại đây...">
+                        </textarea>
+                    <div class="divider-nospace"></div>
+                </div>
+                <div class="form-group">
+                    <label>Phương pháp điều trị</label>
+                    <textarea class="form-control" id="treatment" name="treatment" [(ngModel)]="treatment" rows="3"
+                        placeholder="Nhập phương pháp điều trị chi tiết tại đây...">
+                        </textarea>
+                    <div class="divider-nospace"></div>
+                </div>
+                <div class="form-group">
+                    <label>Đơn thuốc điều trị</label>
+                    <textarea class="form-control" id="medications " name="medications" [(ngModel)]="medications"
+                        rows="3" placeholder="Nhập đơn thuốc chi tiết tại đây...">
+                        </textarea>
+                    <div class="divider-nospace"></div>
+                </div>
+                <button class="profile-button" (click)="createProfile()">Thêm dịch vụ </button>
+            </div>
+        </div>
+    </div>
+</div>

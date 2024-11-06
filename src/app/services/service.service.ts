@@ -22,4 +22,8 @@ export class ServiceService {
             .set('limit', limit.toString());
         return this.http.get<any[]>(this.apiServices, { params });
     }
+
+    getServicesByIds(selectServiceId: number[]){
+        return this.http.post(`${this.apiServices}/getByIds`, selectServiceId);
+    }
 }

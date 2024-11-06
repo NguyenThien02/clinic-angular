@@ -1,6 +1,7 @@
 .container-fluid {
     display: flex;
     height: 100vh;
+    
 }
 
 .main-content {
@@ -33,6 +34,11 @@
     height: 2px;
     background-color: #007bff; /* Màu xanh dương */
     margin: 20px 0; /* Khoảng cách trên dưới cho dòng phân cách */
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #0077ee;
 }
 
 /* Tạo khoảng cách giữa các nút */

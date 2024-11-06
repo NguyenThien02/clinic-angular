@@ -22,7 +22,6 @@ export class DoctorService {
     return this.http.get<any[]>(this.apiDoctor, { params });
   }
   getDoctorByUserId(userId: number){
-    debugger
     return this.http.get(`${this.apiDoctor}/${userId}`)
   }
 

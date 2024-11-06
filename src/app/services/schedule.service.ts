@@ -26,5 +26,12 @@ export class ScheduleService {
         .set('page', page.toString())
         .set('limit', limit.toString());
         return this.http.get<any[]>(`${this.apiSchedule}/user/${userId}`, {params});
-      }
+    }
+
+    getScheduleByDoctorId(doctorId: number, page: number, limit: number){
+        const params = new HttpParams()
+        .set('page', page.toString())
+        .set('limit', limit.toString());
+        return this.http.get<any[]>(`${this.apiSchedule}/doctor/${doctorId}`, {params});
+    }
 }
