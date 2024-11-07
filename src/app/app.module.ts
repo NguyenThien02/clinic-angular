@@ -13,6 +13,7 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { ListDoctorComponent } from './components/list-doctor/list-doctor.component';
 import { DoctorDetailComponent } from './components/doctor-detail/doctor-detail.component';
 import { UpdatePasswordComponent } from './components/update-password/update-password.component';
+import { ProfileDetailComponent } from './components/profile-detail/profile-detail.component';
 
 import { AdminHomeComponent } from './components/admin-components/admin-home/admin-home.component';
 import { AdminHeaderComponent } from './components/admin-components/admin-header/admin-header.component';
@@ -46,26 +47,31 @@ import { DoctorProfileManageComponent } from './components/doctor-components/doc
     AppComponent,
     HeaderComponent,
     ListDoctorComponent,
+    ProfileDetailComponent,
     DoctorDetailComponent,
+    UpdatePasswordComponent,
+
     AdminHomeComponent,
     AdminHeaderComponent,
     AdminUpdateComponent,
+    AdminDoctorManageComponent,
+    AdminDoctorRegisterComponent,
+
     DoctorHeaderComponent,
     DoctorHomeComponent,
     DoctorUpdateComponent,
-    UserHeaderComponent,
-    UserHomeComponent,
-    UserUpdateComponent,
-    UpdatePasswordComponent,
-    AdminDoctorManageComponent,
-    AdminDoctorRegisterComponent,
-    UserCreateScheduleComponent,
-    UserGetScheduleComponent,
     DoctorScheduleManageComponent,
     DoctorUpdateProfileComponent,
     DoctorCreateProfileComponent,
     DoctorAddServiceComponent,
     DoctorProfileManageComponent,
+
+    UserHeaderComponent,
+    UserHomeComponent,
+    UserUpdateComponent,
+    UserCreateScheduleComponent,
+    UserGetScheduleComponent,
+
   ],
   imports: [
     BrowserModule,

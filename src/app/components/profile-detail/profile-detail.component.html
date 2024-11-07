@@ -1,1 +1,68 @@
-<p>profile-detail works!</p>
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="container-fluid">
+        <app-doctor-header></app-doctor-header>
+        <div class="main-content">
+            <div class="form-section" *ngIf="profile">
+                <h2 class="section-title">Thông tin chi tiết bệnh án</h2>
+                <div class="form-group">
+                    <label for="name">Tên bệnh nhân:</label>
+                    <h3 class="profile-detail">{{profile.schedule_response.user_name}}</h3>
+                </div>
+                <div class="form-group">
+                    <label for="name">Số ĐT bệnh nhân:</label>
+                    <h3 class="profile-detail">{{profile.schedule_response.user_phone}}</h3>
+                </div>
+                <div class="form-group">
+                    <label for="name">Ngày Khám:</label>
+                    <h3 class="profile-detail">{{profile.schedule_response.date}}</h3>
+                </div>
+                <div class="form-group">
+                    <label for="name">Thời gian khám:</label>
+                    <h3 class="profile-detail">{{profile.schedule_response.time_slot.startEnd}}</h3>
+                </div>
+                <hr class="section-divider">
+                <h2 class="section-title">Chuẩn đoán</h2>
+                <div class="form-group">
+                    <label for="name">Chuẩn đoán của bác sĩ:</label>
+                    <h3 class="profile-detail">{{profile.diagnosis}}</h3>
+                </div>
+                <div class="form-group">
+                    <label for="name">Phương pháp điều trị:</label>
+                    <h3 class="profile-detail">{{profile.treatment}}</h3>
+                </div>
+                <div class="form-group">
+                    <label for="name">Đơn thuốc điều trị:</label>
+                    <h3 class="profile-detail">{{profile.medications}}</h3>
+                </div>
+
+                <hr class="section-divider">
+                <h2 class="section-title">Các dịch vụ y tế đã sử dụng</h2>
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th class="sub-header">ID</th>
+                            <th class="sub-header">Tên dịch vụ</th>
+                            <th class="sub-header">Giá dịch vụ</th>
+                            <th class="sub-header">Giá khi có BHYT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let service of services">
+                            <td>{{ service.id}}</td>
+                            <td>{{ service.name }}</td>
+                            <td>{{ service.price }} VND</td>
+                            <td>{{ service.insurancePrice }} VND</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="total-amount">
+                    <h3>Tổng số tiền: {{ totalAmount }} VND</h3>
+                    <h3>Tổng số tiền khi có BHYT: {{ totalAmountBHYT }} VND</h3>
+                </div>
+                <button class="confirm-button" routerLink="/doctor/profile-manage">Xác nhận</button>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -22,4 +22,8 @@ export class ProfileService {
     getProfilesByDoctorId(doctorId: number){
         return this.http.get(`${this.apiProfile}/doctor/${doctorId}`);
     }
+
+    getProfileById(profileId: number){
+        return this.http.get(`${this.apiProfile}/${profileId}`);
+      }
 }

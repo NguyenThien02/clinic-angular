@@ -1,0 +1,172 @@
+.container-fluid {
+    display: flex;
+    justify-content: center; /* Căn giữa nội dung */
+    padding: 0 15px; /* Thêm khoảng cách ở hai bên */
+    height: 100vh;
+    background-color:  rgba(91, 248, 151, 0.8); /* Nền màu xám nhạt cho phần container */
+}
+.main-content {
+    flex-grow: 1;
+    max-width: 1200px; /* Giới hạn chiều rộng để tạo khoảng cách ở hai bên */
+    padding: 40px;
+    background-color: #ecf0f1;
+    z-index: 1000;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-right: 1px solid #ddd;
+    overflow-y: auto; /* Cho phép cuộn nếu nội dung vượt quá chiều cao viewport */
+}
+
+.form-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2c3e50;
+}
+.divider {
+    border: 0;
+    height: 2px;
+    background-color: #007bff; /* Màu xanh dương */
+    margin: 20px 0; /* Khoảng cách trên dưới cho dòng phân cách */
+}
+
+
+/* Định dạng chung cho form-group */
+.form-group {
+    margin-bottom: 1rem;
+    font-family: Arial, sans-serif;
+}
+
+/* Định dạng cho tiêu đề nhãn */
+.form-group label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333333;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Định dạng cho thông tin chi tiết */
+.profile-detail {
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: #555;
+    margin: 0;
+}
+
+/* Định dạng cho tiêu đề chẩn đoán */
+.section-title {
+    font-size: 1.5rem;
+    color: #002fff;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #0749ff;
+    padding-bottom: 0.5rem;
+}
+
+/* Định dạng cho đường phân cách */
+.section-divider {
+    border: none;
+    border-top: 2px solid #e0e0e0;
+    margin: 1.5rem 0;
+}
+/* Định dạng cho đường phân cách */
+.section-divider {
+    border: none;
+    border-top: 2px solid #e0e0e0;
+    margin: 1.5rem 0;
+}
+
+/* Định dạng cho tiêu đề */
+.section-title {
+    font-size: 1.5rem;
+    color: #0749ff;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #0749ff;
+    padding-bottom: 0.5rem;
+}
+
+/* Định dạng cho bảng dịch vụ */
+.pricing-table {
+    width: 100%;
+    border-collapse: collapse; /* Bỏ khoảng cách giữa các ô */
+    margin-top: 1rem;
+    font-family: Arial, sans-serif;
+}
+
+/* Định dạng cho tiêu đề cột */
+.pricing-table thead {
+    background-color: #00b828;
+    color: white;
+}
+
+.pricing-table th, .pricing-table td {
+    padding: 0.75rem;
+    text-align: center;
+    border: 1px solid #dee2e6;
+}
+
+.pricing-table .sub-header {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Định dạng cho hàng của bảng */
+.pricing-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.pricing-table tbody tr:hover {
+    background-color: #e9ecef;
+    cursor: pointer;
+}
+
+
+
+// hiển thị tổng tiền 
+
+.total-amount {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e0f7fa;
+    border: 1px solid #b2ebf2;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #00796b;
+  
+    h3 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: bold;
+      color: #004d40;
+    }
+  }
+  
+.confirm-button {
+    padding: 0.5rem 1rem; /* Padding cho nút */
+    border: none; /* Bỏ viền nút */
+    border-radius: 0.25rem; /* Bo góc cho nút */
+    background-color: #0749ff; /* Màu nền cho nút */
+    color: white; /* Màu chữ */
+    font-weight: bold; /* Đậm chữ */
+    cursor: pointer; /* Con trỏ chỉ tay khi di chuột qua */
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+}
+
+.confirm-button:hover {
+    background-color: #1409af; /* Đổi màu nền khi di chuột qua nút */
+}

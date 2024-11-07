@@ -21,6 +21,7 @@ import { DoctorCreateProfileComponent } from "./components/doctor-components/doc
 import { DoctorAddServiceComponent } from "./components/doctor-components/doctor-add-service/doctor-add-service.component";
 import { DoctorProfileManageComponent } from "./components/doctor-components/doctor-profile-manage/doctor-profile-manage.component";
 import { ProfileDetailComponent } from "./components/profile-detail/profile-detail.component";
+import { DoctorUpdateProfileComponent } from "./components/doctor-components/doctor-update-profile/doctor-update-profile.component";
 
 
 const routes: Routes = [
@@ -38,11 +39,12 @@ const routes: Routes = [
     {path: 'user/get-schedule', component: UserGetScheduleComponent},
 
     {path: 'doctor/home', component: DoctorHomeComponent},
-    {path: 'doctor/update', component: DoctorUpdateComponent},
+    {path: 'doctor/update-doctor', component: DoctorUpdateComponent},
     {path: 'doctor/schedule-manage', component: DoctorScheduleManageComponent},
     {path: 'doctor/schedule-manage/create-profile/:scheduleId', component: DoctorCreateProfileComponent},
     {path: 'doctor/schedule-manage/create-profile/add-service/:profileId', component: DoctorAddServiceComponent},
     {path: 'doctor/profile-manage', component: DoctorProfileManageComponent},
+    {path: 'doctor/profile-manage/update-profile/:profileId', component: DoctorUpdateProfileComponent },
     
     {path: 'admin/home', component: AdminHomeComponent},
     {path: 'admin/update', component: AdminUpdateComponent},
