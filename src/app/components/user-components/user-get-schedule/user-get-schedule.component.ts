@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Schedule } from 'src/app/models/Schedule';
 import { ScheduleResponse } from 'src/app/responses/schedule.response';
 import { UserResponse } from 'src/app/responses/user.responses';
@@ -10,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './user-get-schedule.component.html',
   styleUrls: ['./user-get-schedule.component.scss']
 })
-export class UserGetScheduleComponent implements OnInit{
+export class UserGetScheduleComponent implements OnInit {
 
   userResponse?: UserResponse;
   userId: number = 0;
@@ -22,7 +23,7 @@ export class UserGetScheduleComponent implements OnInit{
 
   constructor(
     private userService: UserService,
-    private scheduleService: ScheduleService
+    private scheduleService: ScheduleService,
   ) { }
 
   ngOnInit(): void {
@@ -39,10 +40,10 @@ export class UserGetScheduleComponent implements OnInit{
     }
   }
 
-  getScheduleByUserId(userId: number, page: number, limit: number){
+  getScheduleByUserId(userId: number, page: number, limit: number) {
     debugger
     this.scheduleService.getScheduleByUserId(userId, page, limit).subscribe({
-      next: (response: any) =>{
+      next: (response: any) => {
         debugger
         this.schedules = response.scheduleResponses.map((schedule: ScheduleResponse) => {
           const date = new Date(schedule.date);
@@ -53,7 +54,7 @@ export class UserGetScheduleComponent implements OnInit{
           };
         });
         this.totalPages = response.totalPages;
-          this.pages = Array(this.totalPages).fill(0).map((x, i) => i);
+        this.pages = Array(this.totalPages).fill(0).map((x, i) => i);
       },
       complete: () => {
         debugger;
@@ -65,10 +66,22 @@ export class UserGetScheduleComponent implements OnInit{
     })
   }
 
-  deleteSchedule(scheduleId: number){
-
+  deleteSchedule(scheduleId: number) {
+    const confirmed = confirm('Bạn có chắc chắn muốn xóa lịch hẹn này không');
+    if (confirmed) {
+      this.scheduleService.deleteScheduleById(scheduleId).subscribe({
+        next: (response: any) => {
+          alert(response.messenger);
+          window.location.reload(); 
+        },
+        error: (error: any) => {
+          debugger;
+          alert("Có lỗi khi xóa lịch khám");
+        }
+      })
+    }
   }
-  editSchedule(scheduleId: number){
-
+  editSchedule(scheduleId: number) {
+      
   }
 }

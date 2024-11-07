@@ -2,20 +2,24 @@
     display: flex;
     height: 100vh;
 }
+
 .main-content {
     flex-grow: 1;
     padding: 40px;
     background-color: #ecf0f1;
     top: 0;
-  width: 250px; /* Điều chỉnh tùy ý */
-  z-index: 1000;
-  background-color:  #ecf0f1;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-right: 1px solid #ddd;
-  height: 100vh;
-  overflow-y: auto; /* Cho phép cuộn nếu nội dung vượt quá chiều cao viewport */
+    width: 250px;
+    /* Điều chỉnh tùy ý */
+    z-index: 1000;
+    background-color: #ecf0f1;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-right: 1px solid #ddd;
+    height: 100vh;
+    overflow-y: auto;
+    /* Cho phép cuộn nếu nội dung vượt quá chiều cao viewport */
 }
+
 .form-section {
     background-color: white;
     padding: 20px;
@@ -34,83 +38,81 @@
 .divider {
     border: 0;
     height: 2px;
-    background-color: #007bff; /* Màu xanh dương */
-    margin: 20px 0; /* Khoảng cách trên dưới cho dòng phân cách */
+    background-color: #007bff;
+    /* Màu xanh dương */
+    margin: 20px 0;
+    /* Khoảng cách trên dưới cho dòng phân cách */
 }
-
-/* Định dạng chung cho bảng */
 .pricing-table {
     width: 100%;
-    border-collapse: collapse; /* Loại bỏ khoảng cách giữa các ô */
-    margin: 20px 0; /* Khoảng cách trên dưới bảng */
-    font-size: 16px;
-    color: #333;
-    background-color: #fff;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+    border-collapse: collapse; /* Bỏ khoảng cách giữa các ô */
+    margin-top: 1.5rem;
+    font-family: Arial, sans-serif;
 }
 
-/* Định dạng cho phần đầu bảng */
 .pricing-table thead {
-    background-color: #007bff; /* Màu nền của header */
-    color: #fff; /* Màu chữ của header */
+    background-color: #007bff;
+    color: white;
+}
+
+.pricing-table th, .pricing-table td {
+    padding: 0.75rem;
+    text-align: center;
+    border: 1px solid #dee2e6;
 }
 
 .pricing-table .sub-header {
-    padding: 12px;
-    text-align: left;
-    font-weight: 600; /* In đậm cho tiêu đề */
-    border-bottom: 2px solid #ddd;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
-/* Định dạng cho các hàng trong thân bảng */
-.pricing-table tbody tr {
-    border-bottom: 1px solid #ddd; /* Viền dưới cho các hàng */
-    transition: background-color 0.3s; /* Hiệu ứng khi hover */
+.pricing-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
 }
 
-/* Đổi màu nền khi hover */
 .pricing-table tbody tr:hover {
-    background-color: #f5f5f5;
+    background-color: #e9ecef;
+    cursor: pointer;
 }
 
-/* Định dạng cho các ô trong thân bảng */
-.pricing-table tbody td {
-    padding: 12px;
-    text-align: left;
-}
-
-/* Canh giữa các nút chức năng */
-.action-buttons {
+/* Định dạng cho cột nút hành động */
+.pricing-table td:last-child {
     display: flex;
-    gap: 10px;
+    justify-content: center;
+    gap: 0.5rem; /* Khoảng cách giữa các nút */
 }
-
 /* Định dạng cho nút sửa */
 .edit-button {
-    background-color: #28a745;
-    color: #fff;
+    padding: 0.5rem 1rem;
     border: none;
-    padding: 6px 12px;
-    border-radius: 5px;
+    border-radius: 0.25rem;
+    background-color: #daee24;
+    /* Màu nền xanh dương nhạt */
+    color: white;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
 .edit-button:hover {
-    background-color: #218838;
+    background-color: #97b31a;
+    /* Đổi màu khi di chuột qua */
 }
 
 /* Định dạng cho nút xóa */
 .delete-button {
-    background-color: #dc3545;
-    color: #fff;
+    padding: 0.5rem 1rem;
     border: none;
-    padding: 6px 12px;
-    border-radius: 5px;
+    border-radius: 0.25rem;
+    background-color: #ee2424;
+    /* Màu nền xanh dương nhạt */
+    color: white;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
 .delete-button:hover {
-    background-color: #c82333;
+    background-color: #b31a1a;
+    /* Đổi màu khi di chuột qua */
 }

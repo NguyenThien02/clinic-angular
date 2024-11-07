@@ -31,7 +31,11 @@ export class ProfileService {
         return this.http.get(`${this.apiProfile}/${profileId}`);
     }
 
-    updateProfile(profileId: number, profileDTO: ProfileDTO){
+    updateProfileById(profileId: number, profileDTO: ProfileDTO){
         return this.http.put(`${this.apiProfile}/${profileId}`, profileDTO);
+    }
+
+    deleteProfileById(profileId: number){
+        return this.http.delete(`${this.apiProfile}/${profileId}`);
     }
 }

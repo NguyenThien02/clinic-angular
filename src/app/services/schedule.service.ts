@@ -34,4 +34,16 @@ export class ScheduleService {
         .set('limit', limit.toString());
         return this.http.get<any[]>(`${this.apiSchedule}/doctor/${doctorId}`, {params});
     }
+
+    deleteScheduleById(scheduleId: number){
+        return this.http.delete (`${this.apiSchedule}/${scheduleId}`);
+    }
+
+    getScheduleById(scheduleId: number){
+        return this.http.get (`${this.apiSchedule}/${scheduleId}`);
+    }
+
+    updateScheduleById(scheduleId:number, scheduleDTO: ScheduleDTO){
+        return this.http.put(`${this.apiSchedule}/${scheduleId}`, scheduleDTO);
+    }
 }

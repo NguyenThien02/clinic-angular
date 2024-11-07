@@ -27,7 +27,7 @@
                         <td>{{ schedule.date }}</td>
                         <td>{{ schedule.time_slot.startEnd }}</td>
                         <td class="action-buttons">
-                            <button class="edit-button"  (click)="editSchedule(schedule.id)">Sửa</button>
+                            <button class="edit-button"  [routerLink]="['/user/get-schedule/update-schedule', schedule.id]">Sửa</button>
                             <button class="delete-button" (click)="deleteSchedule(schedule.id)">Xóa</button>
                           </td>
                       </tr>

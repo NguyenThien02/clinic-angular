@@ -1,0 +1,80 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="container-fluid">
+        <app-user-header></app-user-header>
+        <div class="main-content">
+            <div class="form-section" *ngIf="schedule">
+                <h2 class="section-title">Chỉnh sửa lịch khám</h2>
+                <hr class="divider">
+                <div class="form-group">
+                    <label>Họ và tên</label>
+                    <a class="read-only-text">{{schedule.user_name}}</a>
+                    <input type="text" 
+                        class="form-control" 
+                        id="userName" 
+                        name="userName" 
+                        [(ngModel)]="userName">
+                    <div class="divider-nospace"></div>
+                </div>
+                <div class="form-group">
+                    <label>Số điện thoại liên hệ</label>
+                    <a class="read-only-text">{{schedule.user_phone}}</a>
+                    <input type="text" class="form-control" id="userPhone" name="userPhone" 
+                    [(ngModel)]="userPhone">
+                    <div class="divider-nospace"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Chuyên khoa</label>
+                    <select class="form-control doctor-specialty" 
+                        [(ngModel)]="selectedSpecialtyId"
+                        (change)="onSpecialtyChange()">
+                        <option [value]="0">Tất cả</option>
+                        <option *ngFor="let specialty of specialties" [value]="specialty.id">
+                            {{ specialty.name }}
+                        </option>
+                    </select>
+                    <div class="divider-nospace"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Tên bác sĩ</label>
+                    <a class="read-only-text">{{schedule.doctor_response.user_response.full_name}}</a>
+                    <select class="form-control doctor-specialty" [(ngModel)]="doctorId">
+                        <option *ngFor="let doctor of listDoctors" [value]="doctor.id">
+                            {{ doctor.user_response.full_name }}
+                        </option>
+                    </select>
+                    <div class="divider-nospace"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Ngày khám</label>
+                    <a class="read-only-text">{{schedule.date}}</a>
+                    <input type="date" 
+                        class="form-control" 
+                        id="date" 
+                        name="date" 
+                        [(ngModel)]="date"
+                        (change)="checkTimeSlot()">
+                    <div class="divider-nospace"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Thời gian khám</label>
+                    <a class="read-only-text">{{schedule.time_slot.startEnd}}</a>
+                    <select class="form-control doctor-specialty" [(ngModel)]="timeSlotId" >
+                        <option *ngFor="let timeSlot of timeSlots" [value]="timeSlot.id">
+                            {{ timeSlot.startEnd }}
+                        </option>
+                    </select>
+                    <div class="divider-nospace"></div>
+                    <div *ngIf="showFullScheduleMessage" class="alert alert-warning">
+                        Lịch đã đầy vui lòng chọn ngày khác.
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" (click)="saveUpdateSchedule()">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>

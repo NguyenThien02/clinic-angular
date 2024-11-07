@@ -36,6 +36,7 @@ import { UserCreateScheduleComponent } from './components/user-components/user-c
 import { UserGetScheduleComponent } from './components/user-components/user-get-schedule/user-get-schedule.component';
 import { DoctorProfileManageComponent } from './components/doctor-components/doctor-profile-manage/doctor-profile-manage.component';
 import { UserGetProfileComponent } from './components/user-components/user-get-profile/user-get-profile.component';
+import { UserUpdateScheduleComponent } from './components/user-components/user-update-schedule/user-update-schedule.component';
 
 
 
@@ -73,6 +74,7 @@ import { UserGetProfileComponent } from './components/user-components/user-get-p
     UserCreateScheduleComponent,
     UserGetScheduleComponent,
     UserGetProfileComponent,
+    UserUpdateScheduleComponent,
 
   ],
   imports: [

@@ -55,7 +55,7 @@ export class LoginComponent {
       role_id: this.selectedRole?.id ?? 1
     };
     this.tokenService.removeToken();
-    localStorage.removeItem('user');
+    localStorage.clear();
     this.userService.login(loginDTO).subscribe({
       next: (response: any) => {
         debugger;

@@ -26,7 +26,7 @@
                             <td>{{ profile.schedule_response.date}}</td>
                             <td>{{ profile.schedule_response.time_slot.startEnd}}</td>
                             <td>
-                                <button class="detail-button" [routerLink]="['/profile-manage/profile-detail/', profile.id]">Chi tiết</button>
+                                <button class="detail-button" [routerLink]="['doctor/profile-manage/profile-detail/', profile.id]">Chi tiết</button>
                                 <button class="edit-button" [routerLink]="['/doctor/profile-manage/update-profile/', profile.id]">Chỉnh sửa</button>
                             </td>
                         </tr>

@@ -5,11 +5,13 @@ import { ProfileDetailDTO } from 'src/app/dtos/profileDetail.dto';
 import { Service } from 'src/app/models/Service';
 import { Specialty } from 'src/app/models/Specialty';
 import { ProfileResponse } from 'src/app/responses/profile.response';
+import { UserResponse } from 'src/app/responses/user.responses';
 import { AddServiceService } from 'src/app/services/addService.service';
 import { ProfileService } from 'src/app/services/profile.service';
 import { ProfileDetailService } from 'src/app/services/profileDetail.service';
 import { ServiceService } from 'src/app/services/service.service';
 import { SpecialtyService } from 'src/app/services/specialty.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-doctor-add-service',
@@ -40,14 +42,14 @@ export class DoctorAddServiceComponent implements OnInit{
     private addServiceService: AddServiceService,
     private profileDetailService: ProfileDetailService,
     private router: Router,
-    private profileService: ProfileService
+    private profileService: ProfileService,
 ){}
 
   ngOnInit() {
     this.getAllSpecialties();
     this.getProfileId();
     this.getServices(this.page, this.limit, this.selectedSpecialtyId);
-    this.getSelectService()
+    this.getSelectService();
   }
 
   getProfileId() {
@@ -157,13 +159,6 @@ export class DoctorAddServiceComponent implements OnInit{
         debugger
         this.profileResponse = response;
         this.updateMoney(response.id);
-        if (this.profileResponse) {
-          const addToProfileId = 'profileId:' + this.profileResponse.id.toString();
-          localStorage.removeItem(addToProfileId);
-          this.router.navigate(['/profile-manage/profile-detail/', this.profileResponse.id]);
-        } else {
-          alert('Không tìm thấy profileId này');
-        }
       },
       error: (error: any) => {
         debugger;
@@ -182,9 +177,17 @@ export class DoctorAddServiceComponent implements OnInit{
       total_insurance_money: this.totalAmountBHYT
     }
     debugger
-    this.profileService.updateProfile(profileId, profileDTO).subscribe({
+    this.profileService.updateProfileById(profileId, profileDTO).subscribe({
       next: (response: any) =>{
         debugger
+        if (this.profileResponse) {
+          const addToProfileId = 'profileId:' + this.profileResponse.id.toString();
+          localStorage.removeItem(addToProfileId);
+          this.router.navigate(['/profile-manage/profile-detail/', this.profileResponse.id]);
+          
+        } else {
+          alert('Không tìm thấy profileId này');
+        }
       },
       error: (error: any) => {
         alert('Lỗi khi thêm tổng số tiền vào hồ sơ');

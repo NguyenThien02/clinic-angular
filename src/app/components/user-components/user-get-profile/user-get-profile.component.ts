@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProfileResponse } from 'src/app/responses/profile.response';
 import { UserResponse } from 'src/app/responses/user.responses';
 import { ProfileService } from 'src/app/services/profile.service';
+import { ScheduleService } from 'src/app/services/schedule.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -9,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './user-get-profile.component.html',
   styleUrls: ['./user-get-profile.component.scss']
 })
-export class UserGetProfileComponent implements OnInit{
+export class UserGetProfileComponent implements OnInit {
 
   profiles: ProfileResponse[] = [];
   userResponse?: UserResponse;
@@ -17,8 +19,9 @@ export class UserGetProfileComponent implements OnInit{
 
   constructor(
     private userService: UserService,
-    private profileService: ProfileService
-  ){}
+    private profileService: ProfileService,
+    private scheduleService: ScheduleService,
+  ) { }
 
   ngOnInit(): void {
     this.getUserResponse();
@@ -34,7 +37,7 @@ export class UserGetProfileComponent implements OnInit{
     }
   }
 
-  getProfileByUserId(){
+  getProfileByUserId() {
     this.profileService.getProfilesByUserId(this.userId).subscribe({
       next: (response: any) => {
         this.profiles = response.map((profile: ProfileResponse) => {
@@ -65,5 +68,30 @@ export class UserGetProfileComponent implements OnInit{
         alert("Không lấy được danh sách profile");
       }
     })
+  }
+
+  deleteProfile(profileId: number, scheduleId: number) {
+    const confirmed = confirm('Bạn có chắc chắn muốn xóa hồ sơ này không');
+    if (confirmed) {
+      this.profileService.deleteProfileById(profileId).subscribe({
+        next: (response: any) => {
+          alert(response.messenger);
+        },
+        error: (error: any) => {
+          debugger;
+          alert("Có lỗi khi xóa profile");
+        }
+      })
+      this.scheduleService.deleteScheduleById(scheduleId).subscribe({
+        next: (response: any) => {
+          alert(response.messenger);
+          window.location.reload(); 
+        },
+        error: (error: any) => {
+          debugger;
+          alert("Có lỗi khi xóa lịch khám");
+        }
+      })
+    }
   }
 }

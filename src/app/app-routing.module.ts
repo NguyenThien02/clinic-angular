@@ -23,6 +23,7 @@ import { DoctorProfileManageComponent } from "./components/doctor-components/doc
 import { ProfileDetailComponent } from "./components/profile-detail/profile-detail.component";
 import { DoctorUpdateProfileComponent } from "./components/doctor-components/doctor-update-profile/doctor-update-profile.component";
 import { UserGetProfileComponent } from "./components/user-components/user-get-profile/user-get-profile.component";
+import { UserUpdateScheduleComponent } from "./components/user-components/user-update-schedule/user-update-schedule.component";
 
 
 const routes: Routes = [
@@ -33,12 +34,15 @@ const routes: Routes = [
     {path: 'doctor-detail/:userId', component: DoctorDetailComponent},
     {path: 'update-password', component: UpdatePasswordComponent},
     {path: 'profile-manage/profile-detail/:profileId', component: ProfileDetailComponent},
+    
 
     {path: 'user/home', component: UserHomeComponent},
-    {path: 'user/update', component: UserUpdateComponent},
+    {path: 'user/update-user', component: UserUpdateComponent},
     {path: 'user/create-schedule', component: UserCreateScheduleComponent},
     {path: 'user/get-schedule', component: UserGetScheduleComponent},
+    {path: 'user/get-schedule/update-schedule/:schedule_id', component: UserUpdateScheduleComponent },
     {path: 'user/get-profile', component: UserGetProfileComponent},
+    
 
     {path: 'doctor/home', component: DoctorHomeComponent},
     {path: 'doctor/update-doctor', component: DoctorUpdateComponent},
@@ -48,6 +52,7 @@ const routes: Routes = [
     {path: 'doctor/profile-manage/add-service/:profileId', component: DoctorAddServiceComponent},
     {path: 'doctor/profile-manage', component: DoctorProfileManageComponent},
     {path: 'doctor/profile-manage/update-profile/:profileId', component: DoctorUpdateProfileComponent },
+
     
     {path: 'admin/home', component: AdminHomeComponent},
     {path: 'admin/update', component: AdminUpdateComponent},

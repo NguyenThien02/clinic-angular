@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Service } from 'src/app/models/Service';
 import { ProfileResponse } from 'src/app/responses/profile.response';
 import { ProfileService } from 'src/app/services/profile.service';
 import { ProfileDetailService } from 'src/app/services/profileDetail.service';
 import { Location } from '@angular/common';
+import { UserResponse } from 'src/app/responses/user.responses';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -19,20 +21,27 @@ export class ProfileDetailComponent implements OnInit{
   services: Service[] = [];
   totalAmount: number = 0;
   totalAmountBHYT: number = 0;
-  
+  userResponse?: UserResponse;
 
   constructor(
     private route: ActivatedRoute,
     private profileService: ProfileService,
     private profileDetailService: ProfileDetailService,
-    private location: Location
+    private userService: UserService,
+    private router: Router,
   ){}
 
   ngOnInit() {
     this.getProfileId();
     this.getProfileById();
     this.getSelectService();
+    this.getUserResponse();
   }
+
+  getUserResponse() {
+    this.userResponse = this.userService.getUserResponseFromLocalStorage();
+  }
+
   getProfileId() {
     const profileIdParam = this.route.snapshot.paramMap.get('profileId');
     if (profileIdParam !== null) {
@@ -79,7 +88,12 @@ export class ProfileDetailComponent implements OnInit{
       }
     })
   }
-  goBack(): void {
-    this.location.back(); // Quay về trang trước đó
+  routerDoctorOrUser(){
+    if(this.userResponse?.role.id === 2){
+      this.router.navigate(['/doctor/profile-manage'])
+    }
+    else if(this.userResponse?.role.id === 1){
+      this.router.navigate(['/user/get-profile'])
+    }
   }
 }

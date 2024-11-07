@@ -77,7 +77,7 @@ export class DoctorUpdateProfileComponent implements OnInit{
       total_insurance_money: this.profile?.total_insurance_money || 0
     }
     debugger
-    this.profileService.updateProfile(this.profileId, profileDTO).subscribe({
+    this.profileService.updateProfileById(this.profileId, profileDTO).subscribe({
       next: (response: any) => {
         debugger
           alert("Cập nhật hồ sơ bệnh án thành công");
