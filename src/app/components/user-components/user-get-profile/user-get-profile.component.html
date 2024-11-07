@@ -1,12 +1,11 @@
 <app-header></app-header>
 <div class="container-fluid">
     <div class="container-fluid">
-        <app-doctor-header></app-doctor-header>
+        <app-user-header></app-user-header>
         <div class="main-content">
             <div class="form-section">
-                <h2 class="section-title">Quản lý hồ sơ bệnh án</h2>
+                <h2 class="section-title">Danh sách hồ sơ bệnh án</h2>
                 <hr class="divider">
-
                 <table class="pricing-table">
                     <thead>
                         <tr>
@@ -27,7 +26,6 @@
                             <td>{{ profile.schedule_response.time_slot.startEnd}}</td>
                             <td>
                                 <button class="detail-button" [routerLink]="['/profile-manage/profile-detail/', profile.id]">Chi tiết</button>
-                                <button class="edit-button" [routerLink]="['/doctor/profile-manage/update-profile/', profile.id]">Chỉnh sửa</button>
                             </td>
                         </tr>
                     </tbody>

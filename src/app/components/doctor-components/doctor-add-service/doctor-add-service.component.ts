@@ -174,15 +174,15 @@ export class DoctorAddServiceComponent implements OnInit{
 
   updateMoney(profileId: number){
     const profileDTO: ProfileDTO = {
-      schedule_id: 0,
-      diagnosis: "",
-      treatment: "",
-      medications: "",
+      schedule_id: this.profileResponse?.schedule_response.id || 0,
+      diagnosis: this.profileResponse?.diagnosis || "",
+      treatment: this.profileResponse?.treatment || "",
+      medications: this.profileResponse?.medications || "",
       total_money: this.totalAmount,
       total_insurance_money: this.totalAmountBHYT
     }
     debugger
-    this.profileService.UpdateMoney(profileId, profileDTO).subscribe({
+    this.profileService.updateProfile(profileId, profileDTO).subscribe({
       next: (response: any) =>{
         debugger
       },

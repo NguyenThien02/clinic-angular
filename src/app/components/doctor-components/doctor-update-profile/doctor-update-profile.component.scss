@@ -32,6 +32,147 @@
 .divider {
     border: 0;
     height: 2px;
-    background-color: #007bff; /* Màu xanh dương */
+    background-color: #0400ff; /* Màu xanh dương */
     margin: 20px 0; /* Khoảng cách trên dưới cho dòng phân cách */
 }
+
+/* Định dạng chung cho form-group */
+.form-group {
+    margin-bottom: 1.5rem;
+    font-family: Arial, sans-serif;
+}
+
+/* Định dạng cho nhãn tiêu đề */
+.form-group label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+/* Định dạng cho thông tin chi tiết của bệnh nhân */
+.profile-detail {
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: #555;
+    margin: 0;
+    padding: 0.2rem 0;
+}
+
+/* Định dạng cho đường phân cách */
+.section-divider {
+    border: none;
+    border-top: 2px solid #e0e0e0;
+    margin: 1.5rem 0;
+}
+
+// nút bấm
+.editProfile-button {
+    padding: 0.5rem 1rem; /* Padding cho nút */
+    border: none; /* Bỏ viền nút */
+    border-radius: 0.25rem; /* Bo góc cho nút */
+    background-color: #0749ff; /* Màu nền cho nút */
+    color: white; /* Màu chữ */
+    font-weight: bold; /* Đậm chữ */
+    cursor: pointer; /* Con trỏ chỉ tay khi di chuột qua */
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+}
+
+.editProfile-button:hover {
+    background-color: #1409af; /* Đổi màu nền khi di chuột qua nút */
+}
+
+/* Định dạng cho nhãn tiêu đề chứa nút */
+label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Khoảng cách giữa chữ và nút */
+    margin-bottom: 1rem;
+}
+
+/* Định dạng cho nút "Chỉnh sửa" */
+.editAddService-button {
+    padding: 0.3rem 0.7rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.editAddService-button:hover {
+    background-color: #0056b3;
+}
+
+/* Định dạng cho bảng dịch vụ */
+.pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-family: Arial, sans-serif;
+}
+
+/* Định dạng tiêu đề của bảng */
+.pricing-table thead {
+    background-color: #006d09;
+    color: white;
+}
+
+.pricing-table th, .pricing-table td {
+    padding: 0.75rem;
+    text-align: center;
+    border: 1px solid #dee2e6;
+}
+
+.pricing-table .sub-header {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Hiệu ứng cho hàng của bảng */
+.pricing-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.pricing-table tbody tr:hover {
+    background-color: #e9ecef;
+    cursor: pointer;
+}
+
+.total-amount {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e0f7fa;
+    border: 1px solid #b2ebf2;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #00796b;
+  
+    h3 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: bold;
+      color: #004d40;
+    }
+  }
+  .read-only-text {
+    display: block; /* Hiển thị dưới dạng khối */
+    margin-bottom: 0.5rem; /* Khoảng cách dưới */
+    font-size: 1rem; /* Kích thước chữ */
+    color: #333; /* Màu chữ đậm hơn để nhấn mạnh */
+    font-weight: 500; /* Đậm chữ vừa phải */
+    padding: 0.25rem 0.5rem; /* Padding xung quanh văn bản */
+    background-color: #f5f5f5; /* Màu nền nhạt để phân biệt */
+    border: 1px solid #ddd; /* Viền nhẹ cho phần hiển thị */
+    border-radius: 4px; /* Bo góc */
+}
+

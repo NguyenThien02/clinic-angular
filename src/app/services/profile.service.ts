@@ -15,7 +15,7 @@ export class ProfileService {
         return this.http.post(`${this.apiProfile}`, profileDTO);
     }
 
-    UpdateMoney(profileId: number, profileDTO: ProfileDTO){
+    updateMoney(profileId: number, profileDTO: ProfileDTO){
         return this.http.put(`${this.apiProfile}/money/${profileId}`, profileDTO);
     }
 
@@ -23,7 +23,15 @@ export class ProfileService {
         return this.http.get(`${this.apiProfile}/doctor/${doctorId}`);
     }
 
+    getProfilesByUserId(userId: number){
+        return this.http.get(`${this.apiProfile}/user/${userId}`);
+    }
+
     getProfileById(profileId: number){
         return this.http.get(`${this.apiProfile}/${profileId}`);
-      }
+    }
+
+    updateProfile(profileId: number, profileDTO: ProfileDTO){
+        return this.http.put(`${this.apiProfile}/${profileId}`, profileDTO);
+    }
 }

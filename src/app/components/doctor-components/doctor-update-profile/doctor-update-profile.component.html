@@ -3,9 +3,94 @@
     <div class="container-fluid" >
         <app-doctor-header></app-doctor-header>
         <div class="main-content">
-            <div class="form-section">
-                <h2 class="section-title">Tạo hồ sơ bệnh án</h2>
+            <div class="form-section" *ngIf="profile">
+                <h2 class="section-title">Chỉnh sửa hồ sơ bệnh án</h2>
                 <hr class="divider">
+                <div class="form-group">
+                    <label for="name">Tên bệnh nhân:</label>
+                    <h3 class="profile-detail">{{profile.schedule_response.user_name}}</h3>
+                </div>
+                <div class="form-group">
+                    <label for="name">Số ĐT bệnh nhân:</label>
+                    <h3 class="profile-detail">{{profile.schedule_response.user_phone}}</h3>
+                </div>
+                <div class="form-group">
+                    <label for="name">Ngày Khám:</label>
+                    <h3 class="profile-detail">{{profile.schedule_response.date}}</h3>
+                </div>
+                <div class="form-group">
+                    <label for="name">Thời gian khám:</label>
+                    <h3 class="profile-detail">{{profile.schedule_response.time_slot.startEnd}}</h3>
+                </div>
+                <hr class="section-divider">
+
+                <div class="form-group">
+                    <label>Chuẩn đoán của bác sĩ</label>
+                    <a class="read-only-text" *ngFor="let item of profile.diagnosis.split('\n')">
+                        - {{ item.trim() }}</a>
+                    <textarea class="form-control" 
+                              id="diagnosis" 
+                              name="diagnosis" 
+                              [(ngModel)]="diagnosis" 
+                              rows="3"
+                              placeholder="Nhập chuẩn đoán chi tiết tại đây...">
+                    </textarea>
+                </div>
+                <div class="form-group">
+                    <label>Phương pháp điều trị</label>
+                    <a class="read-only-text" *ngFor="let item of profile.treatment.split('\n')">
+                        - {{ item.trim() }}</a>
+                    <textarea class="form-control" 
+                              id="treatment" 
+                              name="treatment" 
+                              [(ngModel)]="treatment" 
+                              rows="3"
+                              placeholder="Nhập phương pháp điều trị chi tiết tại đây...">
+                    </textarea>
+                </div>
+                <div class="form-group">
+                    <label>Đơn thuốc điều trị</label>
+                    <a class="read-only-text" *ngFor="let item of profile.medications.split('\n')">
+                        - {{ item.trim() }}</a>
+                    <textarea class="form-control" 
+                              id="medications" 
+                              name="medications" 
+                              [(ngModel)]="medications" 
+                              rows="3" 
+                              placeholder="Nhập đơn thuốc chi tiết tại đây...">
+                    </textarea>
+                </div>
+                
+                <button class="editProfile-button" (click)="saveUpdateProfile()">Lưu</button>
+                <h2 class="section-title">Chỉnh dịch vụ sử dụng</h2>
+                <hr class="divider">
+                <div class="form-group" >
+                    <label>Các dịch vụ sử dụng 
+                        <button class="editAddService-button" [routerLink]="['/doctor/profile-manage/add-service', profile.id]"
+                        >Chỉnh sửa</button>
+                    </label>
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th class="sub-header">ID</th>
+                                <th class="sub-header">Tên dịch vụ</th>
+                                <th class="sub-header">Giá dịch vụ</th>
+                                <th class="sub-header">Giá khi có BHYT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let service of services">
+                                <td>{{ service.id}}</td>
+                                <td>{{ service.name }}</td>
+                                <td>{{ service.price }} VND</td>
+                                <td>{{ service.insurancePrice }} VND</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="total-amount">
+                        <h3>Tổng số tiền: {{ totalAmount }} VND</h3>
+                        <h3>Tổng số tiền khi có BHYT: {{ totalAmountBHYT }} VND</h3>
+                    </div>
             </div>
         </div>
     </div>

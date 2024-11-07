@@ -1,40 +1,42 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileResponse } from 'src/app/responses/profile.response';
-import { DoctorService } from 'src/app/services/doctor.service';
+import { UserResponse } from 'src/app/responses/user.responses';
 import { ProfileService } from 'src/app/services/profile.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-doctor-profile-manage',
-  templateUrl: './doctor-profile-manage.component.html',
-  styleUrls: ['./doctor-profile-manage.component.scss']
+  selector: 'app-user-get-profile',
+  templateUrl: './user-get-profile.component.html',
+  styleUrls: ['./user-get-profile.component.scss']
 })
-export class DoctorProfileManageComponent implements OnInit{
+export class UserGetProfileComponent implements OnInit{
+
   profiles: ProfileResponse[] = [];
-  doctorId: number = 0;
+  userResponse?: UserResponse;
+  userId: number = 0;
 
   constructor(
-    private doctorService: DoctorService,
+    private userService: UserService,
     private profileService: ProfileService
   ){}
 
-  ngOnInit() {
-    this.getDoctorId();
-    this.getProfilesByDoctorId();
+  ngOnInit(): void {
+    this.getUserResponse();
+    this.getProfileByUserId();
   }
 
-  getDoctorId(){
-    const doctorResponse = this.doctorService.getDoctorResponseFromLocalStorage();
-    if(doctorResponse){
-      this.doctorId = doctorResponse.id;
-    }else {
-      alert("Không tìm thấy doctor Id")
+  getUserResponse() {
+    this.userResponse = this.userService.getUserResponseFromLocalStorage();
+    if (this.userResponse) {
+      this.userId = this.userResponse.id;
+    } else {
+      alert("Không tìm thấy userResponse")
     }
   }
 
-  getProfilesByDoctorId() {
-    this.profileService.getProfilesByDoctorId(this.doctorId).subscribe({
+  getProfileByUserId(){
+    this.profileService.getProfilesByUserId(this.userId).subscribe({
       next: (response: any) => {
-        debugger;
         this.profiles = response.map((profile: ProfileResponse) => {
           // Định dạng ngày tháng từ profile.schedule.date
           const date = new Date(profile.schedule_response.date);

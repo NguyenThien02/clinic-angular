@@ -4,6 +4,8 @@ import { Service } from 'src/app/models/Service';
 import { ProfileResponse } from 'src/app/responses/profile.response';
 import { ProfileService } from 'src/app/services/profile.service';
 import { ProfileDetailService } from 'src/app/services/profileDetail.service';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-profile-detail',
@@ -17,11 +19,13 @@ export class ProfileDetailComponent implements OnInit{
   services: Service[] = [];
   totalAmount: number = 0;
   totalAmountBHYT: number = 0;
+  
 
   constructor(
     private route: ActivatedRoute,
     private profileService: ProfileService,
-    private profileDetailService: ProfileDetailService
+    private profileDetailService: ProfileDetailService,
+    private location: Location
   ){}
 
   ngOnInit() {
@@ -74,5 +78,8 @@ export class ProfileDetailComponent implements OnInit{
         alert("Không tìm thấy danh sách dịch vụ đã chọn ");
       }
     })
+  }
+  goBack(): void {
+    this.location.back(); // Quay về trang trước đó
   }
 }
