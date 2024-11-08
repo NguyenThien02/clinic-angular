@@ -51,22 +51,34 @@ export class AdminDoctorManageComponent implements OnInit {
       this.getAllDoctors(this.page, this.limit);
     }
   }
-  confirmDeleteDoctor(id: number) {
+  confirmDeleteDoctor(userId: number ,doctorId: number) {
     if (window.confirm('Bạn có chắc muốn xóa bác sĩ này không?')) {
-      this.deleteDoctorById(id);
+      this.deleteUser(userId);   
+      this.deleteDoctor(doctorId); 
     }
   }
-  deleteDoctorById(id: number){
-    this.doctorService.deleteDoctorById(id).subscribe({
+
+  deleteDoctor(doctorId: number){
+    this.doctorService.deleteDoctorById(doctorId).subscribe({
       next: (response: any) => {
         debugger
-        console.log('Doctor deleted successfully', response);
-        // Cập nhật danh sách doctor sau khi xóa thành công
-        this.getAllDoctors(this.page, this.limit);
+        alert("Xóa thành công doctor có id "+ doctorId);
+        window.location.reload(); 
       },
       error: (error: any) => {
-        console.error('Error deleting doctor:', error);
+        alert("Có lỗi khi xóa doctor có id "+ doctorId);
       }
     });
+  }
+
+  deleteUser(userId: number){
+    this.userService.deleteUserById(userId).subscribe({
+      next:(response: any) => {
+        alert("Xóa thành công user có id: " + userId);
+      },
+      error: (error: Error) =>{
+        alert("Xóa không thành công user có id: " + userId);
+      } 
+    })
   }
 }

@@ -12,7 +12,6 @@
                         <th class="sub-header">STT</th>
                         <th class="sub-header">Tên người khám</th>
                         <th class="sub-header">Bác sĩ khám</th>
-                        <th class="sub-header">Số ĐT bác sĩ</th>
                         <th class="sub-header">Ngày khám</th>
                         <th class="sub-header">Thời gian</th>
                         <th class="sub-header">Chức năng</th>
@@ -22,8 +21,11 @@
                       <tr *ngFor="let schedule of schedules; let i = index">
                         <td>{{ i + 1 }}</td>
                         <td>{{ schedule.user_name }}</td>
-                        <td>{{ schedule.doctor_response.user_response.full_name }}</td>
-                        <td>{{ schedule.doctor_response.user_response.phone_number}}</td>
+                        <td>
+                          <a [routerLink]="['/doctor-detail', schedule.doctor_response.user_response.id]">
+                              {{ schedule.doctor_response.user_response.full_name }}
+                          </a>
+                      </td>
                         <td>{{ schedule.date }}</td>
                         <td>{{ schedule.time_slot.startEnd }}</td>
                         <td class="action-buttons">

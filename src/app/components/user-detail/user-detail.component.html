@@ -1,0 +1,50 @@
+<!-- patient-detail.component.html -->
+<app-header></app-header> <!-- Phần đầu trang -->
+<div class="patient-detail-container" *ngIf="userResponse">
+    <h2 class="page-title">Thông Tin Chi Tiết Bệnh Nhân</h2>
+
+    <div class="patient-info">
+        <div class="info-group">
+            <label>ID:</label>
+            <span>{{ userResponse.id }}</span>
+        </div>
+
+        <div class="info-group">
+            <label>Họ và Tên:</label>
+            <span>{{ userResponse.full_name }}</span>
+        </div>
+
+        <div class="info-group">
+            <label>Số Điện Thoại:</label>
+            <span>{{ userResponse.phone_number }}</span>
+        </div>
+
+        <div class="info-group">
+            <label>Địa Chỉ:</label>
+            <span>{{ userResponse.address }}</span>
+        </div>
+
+        <div class="info-group">
+            <label>Ngày Sinh:</label>
+            <span>{{ userResponse.birthday | date: 'dd-MM-yyyy' }}</span>
+        </div>
+
+        <div class="info-group">
+            <label>Vai Trò:</label>
+            <span>{{ userResponse.role.name }}</span>
+        </div>
+
+        <div class="info-group">
+            <label>Ngày Tạo:</label>
+            <span>{{ userResponse.created_at | date: 'dd-MM-yyyy HH:mm:ss' }}</span>
+        </div>
+
+        <div class="info-group">
+            <label>Ngày Cập Nhật:</label>
+            <span>{{ userResponse.updated_at | date: 'dd-MM-yyyy HH:mm:ss'}}</span>
+        </div>
+
+        <button class="back-button" (click)="goBack()">Quay Lại</button>
+    </div>
+    
+</div>

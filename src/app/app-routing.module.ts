@@ -24,6 +24,8 @@ import { ProfileDetailComponent } from "./components/profile-detail/profile-deta
 import { DoctorUpdateProfileComponent } from "./components/doctor-components/doctor-update-profile/doctor-update-profile.component";
 import { UserGetProfileComponent } from "./components/user-components/user-get-profile/user-get-profile.component";
 import { UserUpdateScheduleComponent } from "./components/user-components/user-update-schedule/user-update-schedule.component";
+import { AdminUserManageComponent } from "./components/admin-components/admin-user-manage/admin-user-manage.component";
+import { UserDetailComponent } from "./components/user-detail/user-detail.component";
 
 
 const routes: Routes = [
@@ -34,6 +36,7 @@ const routes: Routes = [
     {path: 'doctor-detail/:userId', component: DoctorDetailComponent},
     {path: 'update-password', component: UpdatePasswordComponent},
     {path: 'profile-manage/profile-detail/:profileId', component: ProfileDetailComponent},
+    {path: 'user-detail/:userId', component: UserDetailComponent},
     
 
     {path: 'user/home', component: UserHomeComponent},
@@ -57,7 +60,8 @@ const routes: Routes = [
     {path: 'admin/home', component: AdminHomeComponent},
     {path: 'admin/update', component: AdminUpdateComponent},
     {path: 'admin/doctor-manage', component: AdminDoctorManageComponent},
-    {path: 'admin/doctor-manage/register' ,component: AdminDoctorRegisterComponent}
+    {path: 'admin/doctor-manage/register' ,component: AdminDoctorRegisterComponent},
+    {path: 'admin/user-manage', component: AdminUserManageComponent},
     
 
 ]

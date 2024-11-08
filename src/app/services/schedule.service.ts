@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { environment } from "../environments/environment";
 import { HttpClient, HttpParams } from "@angular/common/http";
-import { CheckTimeSlotDTO } from "../dtos/checTimeSlot.dto";
+import { CheckTimeSlotDTO } from "../dtos/checkTimeSlot.dto";
 import { ScheduleDTO } from "../dtos/schedule.dto";
 
 @Injectable({

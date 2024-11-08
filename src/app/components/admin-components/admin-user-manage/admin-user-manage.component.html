@@ -4,28 +4,27 @@
         <app-admin-header></app-admin-header>
         <div class="main-content">
             <div class="form-section">
-                <h2 class="section-title">Quản lý doctor</h2>
-                <button class="btn btn-primary" routerLink="/admin/doctor-manage/register">Đăng ký Doctor</button>
+                <h2 class="section-title">Quản lý user</h2>
                 <hr class="divider">
-                <table class="table user-table table-bordered">
+                <table class="user-table">
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Họ và tên</th>
+                            <th>Số ĐT</th>
                             <th>Địa chỉ</th>
-                            <th>Chuyên khoa</th>
                             <th>Chức năng</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let doctor of listDoctors">
-                            <td>{{doctor.id}}</td>
-                            <td>{{doctor.user_response.full_name}}</td>
-                            <td>{{doctor.user_response.address}}</td>
-                            <td>{{doctor.specialty.name}}</td>
+                        <tr *ngFor="let user of userResponses">
+                            <td>{{user.id}}</td>
+                            <td>{{user.full_name}}</td>
+                            <td>{{user.phone_number}}</td>
+                            <td>{{user.address}}</td>
                             <td>
-                                <button class="detail-button" [routerLink]="['/doctor-detail', doctor.user_response.id]">Chi tiết</button>
-                                <button class="delete-button"  (click)="confirmDeleteDoctor(doctor.user_response.id,doctor.id )" >Xóa</button>
+                                <button class="detail-button" [routerLink]="(['/user-detail/', user.id])">Chi tiết</button>
+                                <button class="delete-button" (click)="deleteUseById(user.id)">Xóa</button>
                             </td>
                         </tr>
                     </tbody>
@@ -35,8 +34,7 @@
                     <button *ngFor="let p of pages" (click)="changePage(p)" [class.active]="p === page">{{ p + 1
                         }}</button>
                     <button (click)="changePage(page + 1)" [disabled]="page === totalPages - 1">Next</button>
-                </div>           
+                </div>         
             </div>
         </div>
-    </div>
 </div>

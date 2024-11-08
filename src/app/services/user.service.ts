@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { environment } from "../environments/environment";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { RegisterDTO } from "../dtos/register.dto";
 import { Observable } from "rxjs";
 import { LoginDTO } from "../dtos/login.dto";
@@ -9,8 +9,8 @@ import { UpdateUserDTO } from "../dtos/updateUser.dto";
 import { PassWordDTO } from "../dtos/password.dto";
 
 @Injectable({
-    providedIn: 'root'
-  })
+  providedIn: 'root'
+})
 export class UserService {
   private apiRegister = `${environment.apiBaseUrl}/users/register`;
   private apiLogin = `${environment.apiBaseUrl}/users/login`;
@@ -74,7 +74,22 @@ export class UserService {
     return this.http.put(`${this.apiUsers}/updatePassword/${id}`, passWordDTO);
   }
 
-  getUserResponesDoctor(){
+  getUserResponesDoctor() {
     return this.http.get<any[]>(`${this.apiUsers}/user-doctor`);
-}
+  }
+
+  getAllUsers(page: number, limit: number){
+    const params = new HttpParams()
+      .set('page', page.toString())
+      .set('limit', limit.toString());
+    return this.http.get(`${this.apiUsers}/role-user`,{params})
+  }
+
+  getByUserId(userId: number){
+    return this.http.get(`${this.apiUsers}/by-user-id/${userId}`)
+  }
+
+  deleteUserById(userId: number){
+    return this.http.delete(`${this.apiUsers}/${userId}`);
+  }
 }  

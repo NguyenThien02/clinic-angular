@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CheckTimeSlotDTO } from 'src/app/dtos/checTimeSlot.dto';
+import { CheckTimeSlotDTO } from 'src/app/dtos/checkTimeSlot.dto';
 import { ScheduleDTO } from 'src/app/dtos/schedule.dto';
 import { Specialty } from 'src/app/models/Specialty';
 import { TimeSlot } from 'src/app/models/TimeSlot';

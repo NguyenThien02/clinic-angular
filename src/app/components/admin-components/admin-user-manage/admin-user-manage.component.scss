@@ -1,17 +1,22 @@
-/* Container styling */
 .container-fluid {
     display: flex;
+    justify-content: center; /* Căn giữa nội dung */
+    padding: 0 15px; /* Thêm khoảng cách ở hai bên */
     height: 100vh;
+    background-color:  rgba(91, 248, 151, 0.8); /* Nền màu xám nhạt cho phần container */
 }
-
 .main-content {
     flex-grow: 1;
-    padding: 20px;
+    max-width: 1200px; /* Giới hạn chiều rộng để tạo khoảng cách ở hai bên */
+    padding: 40px;
     background-color: #ecf0f1;
-    overflow-y: auto;
+    z-index: 1000;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-right: 1px solid #ddd;
+    overflow-y: auto; /* Cho phép cuộn nếu nội dung vượt quá chiều cao viewport */
 }
 
-/* Form section styling */
 .form-section {
     background-color: white;
     padding: 20px;
@@ -20,66 +25,60 @@
 }
 
 .section-title {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
     margin-bottom: 20px;
     text-align: center;
     color: #2c3e50;
 }
-
 .divider {
     border: 0;
     height: 2px;
-    background-color: #007bff; /* Blue color for the divider */
-    margin: 20px 0;
+    background-color: #007bff; /* Màu xanh dương */
+    margin: 20px 0; /* Khoảng cách trên dưới cho dòng phân cách */
 }
 
-/* Table styling */
+// bảng 
+/* Định dạng cho bảng */
 .user-table {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+    border-collapse: collapse; /* Bỏ khoảng cách giữa các ô */
+    margin-top: 1.5rem;
+    font-family: Arial, sans-serif;
 }
 
-/* Table headers */
-.user-table th {
+.user-table thead {
     background-color: #4CAF50;
     color: white;
-    padding: 12px;
-    text-align: left;
 }
 
-/* Table data */
-.user-table td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
+.user-table th, .user-table td {
+    padding: 0.75rem;
+    text-align: center;
+    border: 1px solid #dee2e6;
 }
 
-/* Alternate row background */
-.user-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-/* Hover effect */
-.user-table tr:hover {
-    background-color: #ddd;
-}
-
-/* Button styling */
-button.btn-primary {
-    background-color: #007bff;
-    color: white;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.user-table .sub-header {
     font-weight: bold;
+    text-transform: uppercase;
 }
 
-button.btn-primary:hover {
-    background-color: #0056b3;
+.user-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
 }
+
+.user-table tbody tr:hover {
+    background-color: #e9ecef;
+    cursor: pointer;
+}
+
+/* Định dạng cho cột nút hành động */
+.user-table td:last-child {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem; /* Khoảng cách giữa các nút */
+}
+
 
 /* Định dạng cho nút Chi tiết */
 .detail-button {
@@ -110,6 +109,7 @@ button.btn-primary:hover {
     background-color: #b31a1a; /* Đổi màu khi di chuột qua */
 }
 
+// trang
 
 /* Pagination styling */
 .pagination {

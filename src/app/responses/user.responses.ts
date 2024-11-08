@@ -7,4 +7,6 @@ export interface UserResponse {
     address:string;
     birthday: Date;
     role: Role;    
+    created_at: Date;
+    updated_at: Date;
 }

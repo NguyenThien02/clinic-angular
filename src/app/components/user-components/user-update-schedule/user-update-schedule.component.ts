@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { scheduled } from 'rxjs';
-import { CheckTimeSlotDTO } from 'src/app/dtos/checTimeSlot.dto';
+import { CheckTimeSlotDTO } from 'src/app/dtos/checkTimeSlot.dto';
 import { ScheduleDTO } from 'src/app/dtos/schedule.dto';
 import { Specialty } from 'src/app/models/Specialty';
 import { TimeSlot } from 'src/app/models/TimeSlot';
@@ -132,11 +132,8 @@ export class UserUpdateScheduleComponent {
   }
 
   getScheduleById(){
-    debugger
     this.scheduleService.getScheduleById(this.scheduleId).subscribe({
       next: (response: any) => {
-        debugger
-        
         const date = new Date(response.date);
         const formattedDate = `${('0' + date.getDate()).slice(-2)}-${('0' + (date.getMonth() + 1)).slice(-2)}-${date.getFullYear()}`;
         this.schedule = {
@@ -151,6 +148,24 @@ export class UserUpdateScheduleComponent {
   }
 
   saveUpdateSchedule(){
-    
+    const scheduleDTO: ScheduleDTO = {
+      user_id: this.userId,
+      user_name: this.userName || this.schedule?.user_name || "",
+      user_phone: this.userPhone || this.schedule?.user_phone || "",
+      doctor_id: this.doctorId || this.schedule?.doctor_response.id || 0,
+      date: this.date || this.schedule?.date || new Date(),
+      time_slot_id: this.timeSlotId || this.schedule?.time_slot.id || 0
+    }
+    debugger
+    this.scheduleService.updateScheduleById(this.scheduleId, scheduleDTO).subscribe({
+      next: (response: any) => {
+        debugger
+        this.schedule = response;
+        this.router.navigate(['/user/get-schedule'])
+      },
+      error: (error: any) => {
+        alert("Chỉnh sửa lịch khám không thành công");
+      }
+    })
   }
 }
