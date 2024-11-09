@@ -26,6 +26,7 @@ import { UserGetProfileComponent } from "./components/user-components/user-get-p
 import { UserUpdateScheduleComponent } from "./components/user-components/user-update-schedule/user-update-schedule.component";
 import { AdminUserManageComponent } from "./components/admin-components/admin-user-manage/admin-user-manage.component";
 import { UserDetailComponent } from "./components/user-detail/user-detail.component";
+import { AdminSpecialtyManageComponent } from "./components/admin-components/admin-specialty-manage/admin-specialty-manage.component";
 
 
 const routes: Routes = [
@@ -62,6 +63,7 @@ const routes: Routes = [
     {path: 'admin/doctor-manage', component: AdminDoctorManageComponent},
     {path: 'admin/doctor-manage/register' ,component: AdminDoctorRegisterComponent},
     {path: 'admin/user-manage', component: AdminUserManageComponent},
+    {path: 'admin/specialty-manage', component: AdminSpecialtyManageComponent}
     
 
 ]

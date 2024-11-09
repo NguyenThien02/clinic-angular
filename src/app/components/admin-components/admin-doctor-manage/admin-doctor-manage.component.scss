@@ -34,6 +34,66 @@
     margin: 20px 0;
 }
 
+/* Container chính để chứa nút và search box */
+.header-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+/* Nút đăng ký bên phải */
+.header-actions .btn-primary {
+    font-size: 1rem;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.header-actions .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Đường kẻ ngăn cách - ẩn vì chúng ta đã căn theo hàng ngang */
+.divider {
+    display: none;
+}
+
+/* Phần tìm kiếm bên trái */
+.search-box {
+    display: flex;
+    align-items: center;
+}
+
+.service-specialty {
+    width: 200px;
+    padding: 8px;
+    font-size: 1rem;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+
+.service-specialty:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.ml-2 {
+    margin-left: 8px;
+}
+
+
 /* Table styling */
 .user-table {
     width: 100%;
@@ -91,6 +151,7 @@ button.btn-primary:hover {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
+    
 }
 .detail-button:hover {
     background-color: #13964a; /* Đổi màu khi di chuột qua */

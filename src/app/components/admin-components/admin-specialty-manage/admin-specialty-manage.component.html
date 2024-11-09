@@ -1,0 +1,58 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="container-fluid">
+        <app-admin-header></app-admin-header>
+        <div class="main-content">
+            <div class="form-section">
+                <h2 class="section-title">Quản lý chuyên khoa</h2>
+                <div class="form-group">
+                    <label>Tên chuyên khoa mới</label>
+                    <input type="text" 
+                        class="form-control" 
+                        id="name" 
+                        name="name"
+                        [(ngModel)]="name">
+                    <div class="divider-nospace"></div>
+                </div>
+                <button class="btn btn-primary" (click)="createSpecialty()">Đăng ký chuyên khoa</button>
+                <hr class="divider">
+                <table class="specitalty-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên chuyên khoa</th>
+                            <th>Tổng số dịch vụ</th>
+                            <th>Tổng số bác sĩ</th>
+                            <th>Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let specialty of specialties">
+                            <td>{{specialty.id}}</td>
+                            <td>{{specialty.name}}</td>
+                            <td>{{specialtyDetails[specialty.id].total_service}}</td>
+                            <td>{{specialtyDetails[specialty.id].total_doctor}}</td>
+                            <td>
+                                <button class="edit-button" (click)="editSpecialtyInfo(specialty)">Sửa</button>
+                                <button class="delete-button" (click)="deleteSpecialty(specialty.id)">Xóa</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>   
+                <hr class="divider">
+                <!-- Form chỉnh sửa chuyên khoa khi nhấn "Sửa" -->
+                <div *ngIf="isEditing" class="form-group" id="edit-form">
+                    <h2 class="section-title">Chỉnh sửa chuyên khoa</h2>
+                    <div class="form-group">
+                        <label>Tên chuyên khoa</label>
+                        <input type="text" 
+                            class="form-control" 
+                            [(ngModel)]="editSpecialty.name">
+                        <div class="divider-nospace"></div>
+                    </div>
+                    <button class="btn btn-primary" (click)="saveSpecialty(editSpecialty.id ,editSpecialty.name)" *ngIf="isEditing">Lưu thay đổi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

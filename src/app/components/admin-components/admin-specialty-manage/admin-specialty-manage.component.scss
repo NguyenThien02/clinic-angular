@@ -1,0 +1,157 @@
+.container-fluid {
+    display: flex;
+    height: 100vh;
+}
+.main-content {
+    flex-grow: 1;
+    padding: 40px;
+    background-color: #ecf0f1;
+    top: 0;
+  width: 250px; /* Điều chỉnh tùy ý */
+  z-index: 1000;
+  background-color:  #ecf0f1;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-right: 1px solid #ddd;
+  height: 100vh;
+  overflow-y: auto; /* Cho phép cuộn nếu nội dung vượt quá chiều cao viewport */
+}
+.form-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2c3e50;
+}
+
+.divider {
+    border: 0;
+    height: 2px;
+    background-color: #004ea1; /* Màu xanh dương */
+    margin: 20px 0; /* Khoảng cách trên dưới cho dòng phân cách */
+}
+
+
+// bảng 
+/* Định dạng cho bảng */
+.specitalty-table {
+    width: 100%;
+    border-collapse: collapse; /* Bỏ khoảng cách giữa các ô */
+    margin-top: 1.5rem;
+    font-family: Arial, sans-serif;
+}
+
+.specitalty-table thead {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.specitalty-table th, .specitalty-table td {
+    padding: 0.75rem;
+    text-align: center;
+    border: 1px solid #dee2e6;
+}
+
+.specitalty-table .sub-header {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.specitalty-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.specitalty-table tbody tr:hover {
+    background-color: #e9ecef;
+    cursor: pointer;
+}
+
+/* Định dạng cho nút sửa */
+.edit-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #e5ff00;
+    color: rgb(90, 90, 90);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px; /* Tạo khoảng cách giữa nút sửa và nút xóa */
+}
+
+.edit-button:hover {
+    background-color: #97b31a;
+    /* Đổi màu khi di chuột qua */
+}
+
+/* Định dạng cho nút xóa */
+.delete-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #ee2424;
+    /* Màu nền xanh dương nhạt */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #b31a1a;
+    /* Đổi màu khi di chuột qua */
+}
+
+/* Tạo khoảng cách giữa button và form */
+.btn-primary + .form-group {
+    margin-top: 20px; /* Khoảng cách giữa nút và form */
+}
+
+/* Form group */
+.form-group {
+    margin-bottom: 20px; /* Khoảng cách dưới mỗi trường input */
+}
+
+/* Label */
+.form-group label {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Input field */
+.form-control {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 1rem;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Divider (nếu có) */
+.divider-nospace {
+    margin: 0; /* Loại bỏ khoảng cách dưới divider */
+}
+
+/* Tạo độ rộng cho input */
+.form-control {
+    width: 100%;
+    max-width: 400px; /* Đảm bảo độ rộng input không quá lớn */
+}

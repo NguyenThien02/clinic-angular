@@ -17,6 +17,9 @@
         <li [class.active]="isActive('doctor-manage')">
             <a routerLink="/admin/doctor-manage">Quản lý doctor</a>
         </li>
+        <li [class.active]="isActive('specialty-manage')">
+            <a routerLink="/admin/specialty-manage">Quản lý chuyên khoa</a>
+        </li>
         <li class="logout" (click)="confirmLogout()"> 
             <a href="javascript:void(0)">Đăng xuất</a>
         </li>

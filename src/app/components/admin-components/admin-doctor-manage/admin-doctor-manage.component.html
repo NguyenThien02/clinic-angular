@@ -5,8 +5,21 @@
         <div class="main-content">
             <div class="form-section">
                 <h2 class="section-title">Quản lý doctor</h2>
-                <button class="btn btn-primary" routerLink="/admin/doctor-manage/register">Đăng ký Doctor</button>
-                <hr class="divider">
+                <div class="header-actions">
+                    <!-- Phần tìm kiếm nằm bên trái -->
+                    <div class="search-box">
+                        <select class="form-control service-specialty" [(ngModel)]="selectedSpecialtyId">
+                            <option [value]="0">Tất cả</option>
+                            <option *ngFor="let specialty of specialties" [value]="specialty.id">
+                                {{ specialty.name }}
+                            </option>
+                        </select>
+                        <button class="btn btn-primary ml-2" (click)="searchDoctors()">Tìm kiếm</button>
+                    </div>
+                    
+                    <!-- Nút đăng ký bên phải -->
+                    <button class="btn btn-primary" routerLink="/admin/doctor-manage/register">Đăng ký Doctor</button>
+                </div>
                 <table class="table user-table table-bordered">
                     <thead>
                         <tr>
@@ -24,18 +37,20 @@
                             <td>{{doctor.user_response.address}}</td>
                             <td>{{doctor.specialty.name}}</td>
                             <td>
-                                <button class="detail-button" [routerLink]="['/doctor-detail', doctor.user_response.id]">Chi tiết</button>
-                                <button class="delete-button"  (click)="confirmDeleteDoctor(doctor.user_response.id,doctor.id )" >Xóa</button>
+                                <button class="detail-button"
+                                    [routerLink]="['/doctor-detail', doctor.user_response.id]">Chi tiết</button>
+                                <button class="delete-button"
+                                    (click)="confirmDeleteDoctor(doctor.user_response.id,doctor.id )">Xóa</button>
                             </td>
                         </tr>
                     </tbody>
-                </table>   
+                </table>
                 <div class="pagination">
                     <button (click)="changePage(page - 1)" [disabled]="page === 0">Previous</button>
                     <button *ngFor="let p of pages" (click)="changePage(p)" [class.active]="p === page">{{ p + 1
                         }}</button>
                     <button (click)="changePage(page + 1)" [disabled]="page === totalPages - 1">Next</button>
-                </div>           
+                </div>
             </div>
         </div>
     </div>

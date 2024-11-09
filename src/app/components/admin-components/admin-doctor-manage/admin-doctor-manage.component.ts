@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Specialty } from 'src/app/models/Specialty';
 import { DoctorResponse } from 'src/app/responses/doctor.responses';
 import { UserResponse } from 'src/app/responses/user.responses';
 import { DoctorService } from 'src/app/services/doctor.service';
+import { SpecialtyService } from 'src/app/services/specialty.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -11,8 +13,10 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class AdminDoctorManageComponent implements OnInit {
   userResponse?: UserResponse;
-
   listDoctors: DoctorResponse[] = [];
+  specialties: Specialty[] = [];
+  selectedSpecialtyId: number = 0;
+
   page: number = 0;
   limit: number = 6;
   totalPages: number = 0;
@@ -20,16 +24,28 @@ export class AdminDoctorManageComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private doctorService: DoctorService
+    private doctorService: DoctorService,
+    private specialtyService: SpecialtyService
   ) { }
 
   ngOnInit(): void {
     this.userResponse = this.userService.getUserResponseFromLocalStorage();
-    this.getAllDoctors(this.page, this.limit);
+    this.getAllDoctors(this.page, this.limit, this.selectedSpecialtyId);
+    this.getAllSpecialties();
   }
 
-  getAllDoctors(page: number, limit: number){
-    this.doctorService.getAllDoctors(page, limit,0).subscribe({
+  getAllSpecialties(){
+    this.specialtyService.getAllSpecailties().subscribe({
+      next: (response: any) => {
+        this.specialties = response;
+      },
+      error: (error: any) => {
+        console.error('Error fetching categories:', error);
+      }
+    })
+  }
+  getAllDoctors(page: number, limit: number, selectedSpecialtyId: number){
+    this.doctorService.getAllDoctors(page, limit, selectedSpecialtyId).subscribe({
         next: (response: any) =>{
           debugger
           this.listDoctors = response.listDoctors;
@@ -48,9 +64,14 @@ export class AdminDoctorManageComponent implements OnInit {
   changePage(page: number) {
     if (page >= 0 && page < this.totalPages) {
       this.page = page;
-      this.getAllDoctors(this.page, this.limit);
+      this.getAllDoctors(this.page, this.limit,  this.selectedSpecialtyId);
     }
   }
+
+  searchDoctors(){
+    this.getAllDoctors(this.page, this.limit, this.selectedSpecialtyId);
+  }
+
   confirmDeleteDoctor(userId: number ,doctorId: number) {
     if (window.confirm('Bạn có chắc muốn xóa bác sĩ này không?')) {
       this.deleteUser(userId);   
