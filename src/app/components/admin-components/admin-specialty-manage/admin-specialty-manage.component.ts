@@ -37,7 +37,7 @@ export class AdminSpecialtyManageComponent implements OnInit{
       }
     })
   }
-
+  
   loadSpecialtyDetail() {
     if(this.specialties){
       debugger
@@ -47,7 +47,6 @@ export class AdminSpecialtyManageComponent implements OnInit{
             this.specialtyDetails[specialty.id] = response;
           },
           error: (error: Error) =>{
-            alert("Có lỗi khi lấy tổng số bác sĩ và dịch vụ ")
           }
         });
       });

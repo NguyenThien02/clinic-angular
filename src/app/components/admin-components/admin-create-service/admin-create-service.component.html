@@ -1,0 +1,42 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="container-fluid">
+        <app-admin-header></app-admin-header>
+        <div class="main-content">
+            <div class="form-section">
+                <h2 class="section-title">Tạo mới dịch vụ</h2>
+                <hr class="divider">
+
+                <div class="form-group">
+                    <label for="specialty">Chuyên khoa</label>
+                    <select class="form-control doctor-specialty" id="specialty" [(ngModel)]="selectedSpecialtyId">
+                        <option [value]="0">Tất cả</option>
+                        <option *ngFor="let specialty of specialties" [value]="specialty.id">
+                            {{ specialty.name }}
+                        </option>
+                    </select>
+                    <div class="divider-nospace"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="name">Tên dịch vụ</label>
+                    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name">
+                    <div class="divider-nospace"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="price">Giá dịch vụ (.000 VND)</label>
+                    <input type="text" class="form-control" id="price" name="price" [(ngModel)]="price">
+                    <div class="divider-nospace"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="insurance_price">Giá dịch vụ khi có BHYT (.000 VND)</label>
+                    <input type="text" class="form-control" id="insurance_price" name="insurance_price" [(ngModel)]="insurancePrice">
+                    <div class="divider-nospace"></div>
+                </div>
+                <button type="submit" class="btn btn-primary" (click)="saveService()">Lưu</button>                
+            </div>
+        </div>
+    </div>
+</div>

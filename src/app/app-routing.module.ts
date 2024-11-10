@@ -27,6 +27,9 @@ import { UserUpdateScheduleComponent } from "./components/user-components/user-u
 import { AdminUserManageComponent } from "./components/admin-components/admin-user-manage/admin-user-manage.component";
 import { UserDetailComponent } from "./components/user-detail/user-detail.component";
 import { AdminSpecialtyManageComponent } from "./components/admin-components/admin-specialty-manage/admin-specialty-manage.component";
+import { AdminServiceManageComponent } from "./components/admin-components/admin-service-manage/admin-service-manage.component";
+import { AdminCreateServiceComponent } from "./components/admin-components/admin-create-service/admin-create-service.component";
+import { AdminDetailServiceComponent } from "./components/admin-components/admin-detail-service/admin-detail-service.component";
 
 
 const routes: Routes = [
@@ -63,7 +66,10 @@ const routes: Routes = [
     {path: 'admin/doctor-manage', component: AdminDoctorManageComponent},
     {path: 'admin/doctor-manage/register' ,component: AdminDoctorRegisterComponent},
     {path: 'admin/user-manage', component: AdminUserManageComponent},
-    {path: 'admin/specialty-manage', component: AdminSpecialtyManageComponent}
+    {path: 'admin/specialty-manage', component: AdminSpecialtyManageComponent},
+    {path: 'admin/service-manage', component: AdminServiceManageComponent},
+    {path: 'admin/service-manage/create-service', component: AdminCreateServiceComponent},
+    {path: 'admin/service-manage/detail-service/:serviceId', component: AdminDetailServiceComponent}
     
 
 ]

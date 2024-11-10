@@ -1,0 +1,99 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="container-fluid">
+        <app-admin-header></app-admin-header>
+        <div class="main-content">
+            <div class="form-section">
+                <h2 class="section-title">Quản lý dịch vụ</h2>
+                <hr class="divider">
+                <div class="header-actions">
+                    <!-- Phần tìm kiếm nằm bên trái -->
+                    <div class="search-box" (change)="searchServices()">
+                        <select class="form-control service-specialty"
+                            [(ngModel)]="selectedSpecialtyId">
+                            <option [value]="0">Tất cả</option>
+                            <option *ngFor="let specialty of specialties" 
+                                [value]="specialty.id">
+                                {{ specialty.name }}
+                            </option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn btn-primary" routerLink="/admin/service-manage/create-service">Thêm dịch vụ</button>
+                </div>
+                <table class="service-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên dịch vụ</th>
+                            <th>Thuộc chuyên khoa</th>
+                            <th>Giá</th>
+                            <th>Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let service of services">
+                            <td >{{service.id}}</td>
+                            <td [routerLink]="[('/admin/service-manage/detail-service/'), service.id]">{{service.name}}</td>
+                            <td [routerLink]="[('/admin/service-manage/detail-service/'), service.id]">{{service.specialty.name}}</td>
+                            <td [routerLink]="[('/admin/service-manage/detail-service/'), service.id]">{{service.price}}.000 VND</td>
+                            <td>
+                                <button class="edit-button" (click)="editSpecialtyInfo(service)">Sửa</button>
+                                <button class="delete-button" (click)="deleteServiceById(service.id)">Xóa</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>   
+                <div class="pagination">
+                    <button (click)="changePage(page - 1)" [disabled]="page === 0">Previous</button>
+                    <button *ngFor="let p of pages" (click)="changePage(p)" [class.active]="p === page">{{ p + 1
+                        }}</button>
+                    <button (click)="changePage(page + 1)" [disabled]="page === totalPages - 1">Next</button>
+                </div>
+
+                
+                <!-- Form chỉnh sửa chuyên khoa khi nhấn "Sửa" -->
+                <div *ngIf="isEditing" class="form-group" id="edit-form">
+                    <h2 class="section-title">Chỉnh sửa dịch vụ</h2>
+                    <div class="form-group">
+                        <label>Tên dịch vụ</label>
+                        <input type="text" 
+                            class="form-control" 
+                            [(ngModel)]="editService.name">
+                        <div class="divider-nospace"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Thuộc chuyên khoa</label>
+                        <select class="form-control service-specialty"
+                            [(ngModel)]="editService.specialty.id">
+                            <option [value]="0">Tất cả</option>
+                            <option *ngFor="let specialty of specialties" 
+                                [value]="specialty.id">
+                                {{ specialty.name }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Giá dịch vụ (.000 VND)</label>
+                        <input type="text" 
+                            class="form-control" 
+                            [(ngModel)]="editService.price">
+                        <div class="divider-nospace"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Giá dịch vụ khi có bảo hiểm (.000 VND)</label>
+                        <input type="text" 
+                            class="form-control" 
+                            [(ngModel)]="editService.insurancePrice">
+                        <div class="divider-nospace"></div>
+                    </div>
+                    <button class="btn btn-primary" *ngIf="isEditing" 
+                    (click)="saveService(editService.id, editService.specialty.id, editService.name, editService.price, editService.insurancePrice)">Lưu thay đổi</button>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>

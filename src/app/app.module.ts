@@ -40,7 +40,9 @@ import { UserUpdateScheduleComponent } from './components/user-components/user-u
 import { AdminUserManageComponent } from './components/admin-components/admin-user-manage/admin-user-manage.component';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { AdminSpecialtyManageComponent } from './components/admin-components/admin-specialty-manage/admin-specialty-manage.component';
-import { AdminCreateSpecialtyComponent } from './components/admin-components/admin-create-specialty/admin-create-specialty.component';
+import { AdminServiceManageComponent } from './components/admin-components/admin-service-manage/admin-service-manage.component';
+import { AdminCreateServiceComponent } from './components/admin-components/admin-create-service/admin-create-service.component';
+import { AdminDetailServiceComponent } from './components/admin-components/admin-detail-service/admin-detail-service.component';
 
 
 
@@ -63,7 +65,9 @@ import { AdminCreateSpecialtyComponent } from './components/admin-components/adm
     AdminDoctorRegisterComponent,
     AdminUserManageComponent,
     AdminSpecialtyManageComponent,
-    AdminCreateSpecialtyComponent,
+    AdminServiceManageComponent,
+    AdminCreateServiceComponent,
+    AdminDetailServiceComponent,
 
     DoctorHeaderComponent,
     DoctorHomeComponent,
@@ -82,6 +86,8 @@ import { AdminCreateSpecialtyComponent } from './components/admin-components/adm
     UserGetProfileComponent,
     UserUpdateScheduleComponent,
     UserDetailComponent,
+
+
 
   ],
   imports: [
