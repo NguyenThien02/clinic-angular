@@ -18,7 +18,7 @@ export class ScheduleService {
     }
 
     createSchedule(scheduleDTO: ScheduleDTO){
-        return this.http.post(this.apiSchedule,scheduleDTO);
+        return this.http.post(`${this.apiSchedule}/register`,scheduleDTO);
     }
 
     getScheduleByUserId(userId: number, page: number, limit: number){
@@ -40,7 +40,7 @@ export class ScheduleService {
     }
 
     getScheduleById(scheduleId: number){
-        return this.http.get (`${this.apiSchedule}/${scheduleId}`);
+        return this.http.get (`${this.apiSchedule}/schedule-detail/${scheduleId}`);
     }
 
     updateScheduleById(scheduleId:number, scheduleDTO: ScheduleDTO){

@@ -73,9 +73,9 @@ export class AdminDoctorManageComponent implements OnInit {
   }
 
   confirmDeleteDoctor(userId: number ,doctorId: number) {
-    if (window.confirm('Bạn có chắc muốn xóa bác sĩ này không?')) {
-      this.deleteUser(userId);   
+    if (window.confirm('Bạn có chắc muốn xóa bác sĩ này không?')) { 
       this.deleteDoctor(doctorId); 
+      this.deleteUser(userId);  
     }
   }
 
