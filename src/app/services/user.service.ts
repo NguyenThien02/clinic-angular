@@ -71,7 +71,7 @@ export class UserService {
   }
   updatePassword(passWordDTO: PassWordDTO, id: number): Observable<any> {
     debugger;
-    return this.http.put(`${this.apiUsers}/updatePassword/${id}`, passWordDTO);
+    return this.http.put(`${this.apiUsers}/${id}/password`, passWordDTO);
   }
 
   getUserResponesDoctor() {

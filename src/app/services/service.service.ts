@@ -25,7 +25,7 @@ export class ServiceService {
     }
 
     getServicesByIds(selectServiceId: number[]){
-        return this.http.post(`${this.apiServices}/getByIds`, selectServiceId);
+        return this.http.post(`${this.apiServices}/by-ids`, selectServiceId);
     }
 
     createService(serviceDTO: ServiceDTO){
