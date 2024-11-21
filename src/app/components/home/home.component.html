@@ -1,35 +1,156 @@
 <app-header></app-header>
-<section class="banner">
-    <div class="banner-content">
-        <h1>Đây là trang Home</h1>
-        <p>Trang này hiển thị danh sách các dịch vụ y tế của phòng khám</p>
-        <p>Các bạn có thể xem giá dịch vụ tại đây</p>
-    </div>
-</section>
-
-<div class="search-box">
-    <select class="form-control service-specialty"
-        [(ngModel)]="selectedSpecialtyId">
-        <option [value]="0">Tất cả</option>
-        <option *ngFor="let specialty of specialties" 
-            [value]="specialty.id">
-            {{ specialty.name }}
-        </option>
-    </select>
-    <button class="btn btn-primary ml-2" (click)="searchServices()">Tìm kiếm</button>
+<div class="photobanner">
+    <img *ngFor="let image of images; let i = index" [src]="image" [class.hidden]="i !== currentImageIndex"
+        [class.visible]="i === currentImageIndex" alt="Photo banner image" />
 </div>
-<div class="row service-row">
-    <div class="col-lg-4 col-md-6" *ngFor="let service of services">
-        <div class="service-card">
-            <h3 class="service-name">{{ service.name }}</h3>
-            <p class="service-price">Giá: {{ service.price }}.000 VND</p>
-            <p class="service-insurancePrice">Giá BHYT: {{ service.insurancePrice }}.000 VND</p>
+
+<div class="introduction-section">
+    <div class="container">
+        <div class="intro-content">
+            <h2 class="section-title">Giới thiệu</h2>
+            <h1 class="main-title">PHÒNG KHÁM ĐA KHOA PTIT</h1>
+            <p class="description">
+                Với mong muốn cải thiện dịch vụ y tế cộng đồng, nâng cao chất lượng khám chữa bệnh tại Việt Nam, ngay từ
+                khi thành lập, Phòng khám Đa khoa PTIT đã hợp tác với các chuyên gia đầu ngành của Hàn Quốc, đầu tư hệ
+                thống trang thiết bị hiện đại, xây dựng quy trình khám, chữa bệnh và chăm sóc sức khỏe theo tiêu chuẩn
+                Hàn Quốc, tạo dựng uy tín với mô hình Bệnh viện – khách sạn đẳng cấp tại Hà Nội.
+            </p>
+        </div>
+        <div class="intro-image">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/Fq6ZR6vNDJk" title="YouTube video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+    <div class="features">
+        <div class="feature-item">
+            <img src="https://baosonhospital.com/Upload/icon/about-1.webp" alt="Icon chuyên gia">
+            <p>Chuyên gia đầu ngành bác sỹ giỏi</p>
+        </div>
+        <div class="feature-item">
+            <img src="https://baosonhospital.com/Upload/icon/about-2.webp" alt="Icon trang thiết bị">
+            <p>Trang thiết bị hiện đại bậc nhất</p>
+        </div>
+        <div class="feature-item">
+            <img src="https://baosonhospital.com/Upload/icon/about-3.webp" alt="Icon điều trị">
+            <p>Hiệu quả điều trị cao Thành tựu nổi bật</p>
+        </div>
+        <div class="feature-item">
+            <img src="https://baosonhospital.com/Upload/icon/about-4.webp" alt="Icon quy trình">
+            <p>Quy trình toàn diện, khoa học, chuyên nghiệp</p>
         </div>
     </div>
 </div>
-<div class="pagination">
-    <button (click)="changePage(page - 1)" [disabled]="page === 0">Previous</button>
-    <button *ngFor="let p of pages" (click)="changePage(p)" [class.active]="p === page">{{ p + 1
-        }}</button>
-    <button (click)="changePage(page + 1)" [disabled]="page === totalPages - 1">Next</button>
+
+<div class="vision-mission">
+    <div class="vision-mission-content">
+        <h2 class="vision-mission-title">TẦM NHÌN SỨ MỆNH</h2>
+        <p class="vision-mission-text">
+            Ban Lãnh đạo Phòng khám Đa khoa PTIT luôn nỗ lực hết mình để thực hiện tầm nhìn chiến lược trở thành 1
+            trong 5 phòng khám cung cấp dịch vụ y tế tốt nhất Việt Nam.
+        </p>
+        <p class="vision-mission-text">
+            Đội ngũ Ban lãnh đạo, Bác sĩ, Điều dưỡng, Kỹ thuật viên, cán bộ công nhân viên Phòng khám cùng luôn không
+            ngừng nâng cao chuyên môn nghiệp vụ để cùng chung tay thực hiện sứ mệnh là sự lựa chọn tốt về dịch vụ y tế
+            của khách hàng.
+        </p>
+    </div>
+    <div class="vision-mission-image">
+        <img src="https://baosonhospital.com/Upload/about/tam-nhin-su-menh.webp" alt="Doctor" />
+    </div>
+</div>
+<div class="facilities">
+    <div class="item">
+        <img src="https://baosonhospital.com/Upload/banner/banner-co-so-vat-chat.jpg" alt="Cơ sở vật chất hiện đại"
+            width="1900" height="574" loading="lazy">
+        <div class="description">
+            <p class="title-inf">Cơ sở vật chất hiện đại</p>
+            <div class="text">
+                <p>Là một trong những bệnh viện ngoài công lập chú trọng song song vào cả chất lượng khám chữa bệnh và
+                    chất
+                    lượng dịch vụ người bệnh tại Hà Nội, Bệnh viện Đa Khoa Bảo sơn luôn đầu tư vào môi trường vật chất
+                    giúp
+                    người bệnh luôn cảm thấy dễ chịu nhất khi đến thăm khám.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="service">
+    <h1>CÁC DỊCH VỤ Y TẾ</h1>
+
+    <div class="search-box">
+        <select class="form-control service-specialty" [(ngModel)]="selectedSpecialtyId">
+            <option [value]="0">Tất cả</option>
+            <option *ngFor="let specialty of specialties" [value]="specialty.id">
+                {{ specialty.name }}
+            </option>
+        </select>
+        <button class="btn btn-primary ml-2" (click)="searchServices()">Tìm kiếm</button>
+    </div>
+
+    <div class="row service-row">
+        <div class="col-lg-4 col-md-6" *ngFor="let service of services">
+            <div class="service-card">
+                <h3 class="service-name">{{ service.name }}</h3>
+                <p class="service-price">Giá: {{ service.price }}.000 VND</p>
+                <p class="service-insurancePrice">Giá BHYT: {{ service.insurancePrice }}.000 VND</p>
+            </div>
+        </div>
+    </div>
+    <div class="pagination">
+        <button (click)="changePage(page - 1)" [disabled]="page === 0">Previous</button>
+        <button *ngFor="let p of pages" (click)="changePage(p)" [class.active]="p === page">{{ p + 1
+            }}</button>
+        <button (click)="changePage(page + 1)" [disabled]="page === totalPages - 1">Next</button>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="container">
+        <section class="info">
+            <h2>PHÒNG KHÁM ĐA KHOA PTIT</h2>
+            <p>Km10, Đường Nguyễn Trãi, Q. Hà Đông, Hà Nội</p>
+            <p>Điện thoại: 024 3756 2186</p>
+            <p>Email: <a href="mailto:ctsv&#64;ptit.edu.vn" title="email">
+                    ctsv&#64;ptit.edu.vn</a></p>
+
+            <p> Website: <a href="https://ptit.edu.vn" title="website">
+                    https://ptit.edu.vn</a></p>
+        </section>
+        <section class="services">
+            <h3>DỊCH VỤ Y TẾ</h3>
+            <ul>
+                <li>Dịch vụ cấp cứu 24/24</li>
+                <li>Gói khám sức khỏe</li>
+                <li>Dịch vụ Ngoại khoa</li>
+                <li>Dịch vụ Tai-Mũi-Họng</li>
+                <li>Dịch vụ Sản - Nhi</li>
+                <li>Điều trị da</li>
+                <li>vv...</li>
+            </ul>
+        </section>
+        <section class="services">
+            <h3>THỜI GIAN KHÁM BỆNH</h3>
+            <ul>
+                <li>Thứ 2 - thứ 7: 7h30 đến 16h30</li>
+            </ul>
+            <h3>KHÁM SẢN KHOA</h3>
+            <ul>
+                <li>Thứ 2 - thứ 7: 7h30 đến 16h30</li>
+                <li>Chủ nhật: 7h30 đến 16h00</li>
+                <li>Trực cấp cứu và trực sản: 24/24</li>
+            </ul>
+        </section>
+    </div>
+    <div class="footer-content">
+        <p>Đăng ký kinh doanh: 0105187884 Do sở Kế Hoạch & Đầu Tư Tp.Hà Nội cấp ngày 23/03/2018</p>
+        <p>Giấy phép hoạt động cơ sở khám chữa bệnh số 177/BYT-GPHD do Bộ Y tế cấp ngày 29/03/2021</p>
+        <p>Giấy chứng nhận đủ điều kiện kinh doanh dược số 03-4785/ĐKKDD-HNO/CL1 cấp lại lần 1 do Sở Y tế cấp ngày
+            20/01/2020</p>
+        <p>Copyright © CÔNG TY TNHH BỆNH VIỆN ĐA KHOA BẢO SƠN</p>
+    </div>
 </div>

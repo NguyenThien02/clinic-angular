@@ -19,6 +19,16 @@ export class HomeComponent implements OnInit{
   totalPages: number = 0;
   pages: number[] = [];
 
+  images: string[] = [
+    'https://baosonhospital.com/Upload/banner/banner-web-t7_2024.webp',
+    'https://baosonhospital.com/Upload/banner/tien-hon-nhan_result.webp',
+    'https://baosonhospital.com/Upload/banner/banner-bvbs-1.webp',
+    'https://baosonhospital.com/Upload/banner/thoai-hoa-khop_result.webp',
+    'https://baosonhospital.com/Upload/banner/cat-thang-luoi_result.webp',
+  ];
+  currentImageIndex: number = 0;
+
+
   constructor(
     private specialtyService: SpecialtyService,
     private serviceService: ServiceService
@@ -26,7 +36,10 @@ export class HomeComponent implements OnInit{
 
   ngOnInit(){
     this.getAllSpecialties();
-    this.getServices(this.page, this.limit, this.selectedSpecialtyId)
+    this.getServices(this.page, this.limit, this.selectedSpecialtyId);
+    setInterval(() => {
+      this.changeImage();
+    }, 4000); // Chuyển ảnh mỗi 4 giây
   }
 
   getAllSpecialties(){
@@ -68,5 +81,9 @@ export class HomeComponent implements OnInit{
   searchServices(){
     debugger
     this.getServices(this.page, this.limit, this.selectedSpecialtyId);
+  }
+
+  changeImage() {
+    this.currentImageIndex = (this.currentImageIndex + 1) % this.images.length;
   }
 }
