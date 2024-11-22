@@ -75,15 +75,17 @@ export class UserGetProfileComponent implements OnInit {
     if (confirmed) {
       this.profileService.deleteProfileById(profileId).subscribe({
         next: (response: any) => {
+          debugger
           alert(response.messenger);
         },
         error: (error: any) => {
           debugger;
-          alert("Có lỗi khi xóa profile");
+          alert("Có lỗi khi xóa hồ sơ" + profileId);
         }
       })
       this.scheduleService.deleteScheduleById(scheduleId).subscribe({
         next: (response: any) => {
+          debugger
           alert(response.messenger);
           window.location.reload(); 
         },

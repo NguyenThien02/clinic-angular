@@ -25,7 +25,7 @@
                         <div class="experience-section">
                             <h4>Quá trình đào tạo</h4>
                             <ul>
-                                <li *ngFor="let item of doctorResponse.training_process.split('+')| slice:1">
+                                <li *ngFor="let item of doctorResponse.training_process.split('\n')">
                                     - {{ item.trim() }}
                                 </li>
 
@@ -33,7 +33,7 @@
 
                             <h4>Khám và điều trị</h4>
                             <ul>
-                                <li *ngFor="let item of doctorResponse.job_description.split('+')| slice:1">
+                                <li *ngFor="let item of doctorResponse.job_description.split('\n')">
                                     - {{ item.trim() }}
                                 </li>
                             </ul>

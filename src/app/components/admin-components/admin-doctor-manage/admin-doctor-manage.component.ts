@@ -84,7 +84,7 @@ export class AdminDoctorManageComponent implements OnInit {
       next: (response: any) => {
         debugger
         alert("Xóa thành công doctor có id "+ doctorId);
-        window.location.reload(); 
+        
       },
       error: (error: any) => {
         alert("Có lỗi khi xóa doctor có id "+ doctorId);
@@ -96,6 +96,7 @@ export class AdminDoctorManageComponent implements OnInit {
     this.userService.deleteUserById(userId).subscribe({
       next:(response: any) => {
         alert("Xóa thành công user có id: " + userId);
+        window.location.reload(); 
       },
       error: (error: Error) =>{
         alert("Xóa không thành công user có id: " + userId);
