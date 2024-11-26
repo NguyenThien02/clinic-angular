@@ -11,7 +11,6 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class HeaderComponent {
   userResponse?: UserResponse;
-  activeLink: string = 'home';
 
   constructor(
     private router: Router,

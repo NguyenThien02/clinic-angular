@@ -8,35 +8,30 @@
                 <hr class="divider">
                 <div class="form-group">
                     <label>Họ và tên</label>
-                    <input type="text" 
-                        class="form-control" 
-                        id="fullName" 
-                        name="fullName"
-                        [(ngModel)]="fullName"
+                    <input type="text" class="form-control" id="fullName" name="fullName" [(ngModel)]="fullName"
                         placeholder="{{ userResponse.full_name }}">
                     <div class="divider-nospace"></div>
                 </div>
                 <div class="form-group">
                     <label for="date-of-birth">Ngày tháng năm sinh</label>
-                    <input type="date" 
-                    class="form-control" 
-                    id="date-of-birth"
-                    name="dateOfBirth" 
-                    [(ngModel)]="birthday">
+                    <input type="date" class="form-control" id="date-of-birth" name="dateOfBirth"
+                        [(ngModel)]="birthday">
                     <div class="divider-nospace"></div>
                 </div>
                 <div class="form-group">
                     <label>Địa chỉ</label>
-                    <input type="text" 
-                        class="form-control" 
-                        id="address" 
-                        name="address"
-                        [(ngModel)]="address"
+                    <input type="text" class="form-control" id="address" name="address" [(ngModel)]="address"
                         placeholder="{{ userResponse.address }}">
                     <div class="divider-nospace"></div>
                 </div>
+                <div class="form-group">
+                    <label>Upload ảnh</label>
+                    <input type="file" (change)="onFileSelected($event)" />
+                    <button (click)="uploadFile()" class="btn btn-primary">Tải lên</button>
+                </div>
                 <button type="submit" class="btn btn-primary btn-space" (click)="saveUpdateUser()">Lưu</button>
-                <button type="button" class="btn btn-secondary btn-space" routerLink="/update-password">Thay đổi mật khẩu</button>
+                <button type="button" class="btn btn-secondary btn-space" routerLink="/update-password">Thay đổi mật
+                    khẩu</button>
             </div>
             <hr class="section-divider">
             <div class="form-section">
@@ -52,36 +47,24 @@
                 </div>
                 <div class="form-group">
                     <label>Quá trình đào tạo</label>
-                    <textarea class="form-control" 
-                        id="trainingProcess" 
-                        name="trainingProcess" 
-                        [(ngModel)]="trainingProcess" 
-                        rows="3"
-                        placeholder="Nhập quá trình đào tạo chi tiết tại đây...">
+                    <textarea class="form-control" id="trainingProcess" name="trainingProcess"
+                        [(ngModel)]="trainingProcess" rows="3" placeholder="Nhập quá trình đào tạo chi tiết tại đây...">
                         </textarea>
                     <div class="divider-nospace"></div>
                 </div>
 
                 <div class="form-group">
-                    <label>Mô tả công việc</label>
-                    <textarea class="form-control" 
-                        id="jobDescription" 
-                        name="jobDescription" 
-                        [(ngModel)]="jobDescription" 
-                        rows="3"
-                        placeholder="Nhập mô tả công việc chi tiết tại đây...">
+                    <label>Khám và điều trị các bệnh</label>
+                    <textarea class="form-control" id="jobDescription" name="jobDescription"
+                        [(ngModel)]="jobDescription" rows="3" placeholder="Nhập mô tả công việc chi tiết tại đây...">
                         </textarea>
                     <div class="divider-nospace"></div>
                 </div>
-                
+
                 <button type="submit" class="btn btn-primary" (click)="updateDoctor()">Lưu</button>
-                <div class="form-group">
-                    <label>Upload ảnh</label>
-                    <input type="file" (change)="onFileSelected($event)" />
-                    <button (click)="uploadFile()" class="btn btn-primary">Tải lên</button>
-                  </div>                  
+                
             </div>
         </div>
-        
+
     </div>
 </div>

@@ -1,8 +1,8 @@
 <div class="sidebar">
     <div class="profile">
-        <img src="assets/images1.jpeg" alt="avatar" class="profile-img">
+        <img src="assets/images.jpeg" alt="avatar" class="profile-img">
         <p class="profile-name">{{ userResponse?.full_name }}</p>
-        <p *ngIf="userResponse?.id" class="profile-name">ID: {{ userResponse?.id }}</p> 
+        <p *ngIf="userResponse?.id" class="profile-name">USER ID: {{ userResponse?.id }}</p> 
     </div>
     <ul class="menu">
         <li [class.active]="isActive('home')">

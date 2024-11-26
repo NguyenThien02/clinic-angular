@@ -77,21 +77,11 @@ export class UserGetProfileComponent implements OnInit {
         next: (response: any) => {
           debugger
           alert(response.messenger);
+          window.location.reload();
         },
         error: (error: any) => {
           debugger;
           alert("Có lỗi khi xóa hồ sơ" + profileId);
-        }
-      })
-      this.scheduleService.deleteScheduleById(scheduleId).subscribe({
-        next: (response: any) => {
-          debugger
-          alert(response.messenger);
-          window.location.reload(); 
-        },
-        error: (error: any) => {
-          debugger;
-          alert("Có lỗi khi xóa lịch khám");
         }
       })
     }

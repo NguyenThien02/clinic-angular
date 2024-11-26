@@ -56,7 +56,6 @@ export class UserUpdateScheduleComponent {
     this.getScheduleById();
   }
   getScheduleId() {
-    debugger
     const scheduleIdParam = this.route.snapshot.paramMap.get('schedule_id');
     if (scheduleIdParam !== null) {
       const scheduleId = +scheduleIdParam;  // Chuyển thành số nếu không null

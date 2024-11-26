@@ -38,5 +38,10 @@ header {
 .navbar .navbar-nav .nav-link.active {
     background-color: rgb(55, 3, 245) !important; // Màu nền cho liên kết active
     color: white !important; // Màu chữ cho liên kết active
-    
 }
+
+.nav-item.active{
+    background-color: rgb(55, 3, 245) !important; // Màu nền cho liên kết active
+    color: white !important; //
+}
+
