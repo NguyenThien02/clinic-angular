@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProfileDTO } from 'src/app/dtos/profile.dto';
+import { Schedule } from 'src/app/models/Schedule';
+import { ScheduleResponse } from 'src/app/responses/schedule.response';
 import { ProfileService } from 'src/app/services/profile.service';
+import { ScheduleService } from 'src/app/services/schedule.service';
 
 @Component({
   selector: 'app-doctor-create-profile',
@@ -14,15 +17,18 @@ export class DoctorCreateProfileComponent implements OnInit{
   medications: string = "";
   scheduleId: number = 0;
   profileId: number = 0;
+  schedule?: ScheduleResponse;
 
   constructor(
     private route: ActivatedRoute,
     private profileService: ProfileService,
+    private scheduleService: ScheduleService,
     private router: Router
   ){}
 
   ngOnInit() {
     this.getScheduleId();
+    this.getSchedule();
   }
 
   getScheduleId(){
@@ -33,6 +39,17 @@ export class DoctorCreateProfileComponent implements OnInit{
     } else {
         console.warn('Schedule ID không tồn tại trong route parameters');
     }
+  }
+
+  getSchedule(){
+    this.scheduleService.getScheduleById(this.scheduleId).subscribe({
+      next: (response: any) => {
+        this.schedule = response;
+      },
+      error: (error: Error) => {
+        alert(error);
+      }
+    })
   }
 
   createProfile(){

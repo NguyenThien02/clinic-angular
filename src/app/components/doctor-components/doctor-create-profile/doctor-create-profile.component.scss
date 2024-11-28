@@ -36,6 +36,21 @@
     margin: 20px 0; /* Khoảng cách trên dưới cho dòng phân cách */
 }
 
+/* Styling for each information item */
+.form-infor p {
+    margin: 10px 0; /* Khoảng cách giữa các dòng */
+    font-size: 16px; /* Kích thước chữ vừa phải */
+    line-height: 1.6; /* Tăng khoảng cách dòng để dễ đọc */
+    color: #555; /* Màu chữ trung tính */
+}
+
+/* Styling for the labels (strong tags) */
+.form-infor p strong {
+    color: #2c3e50; /* Màu chữ đậm */
+    font-weight: bold; /* Chữ đậm */
+    font-size: 18px; /* Kích thước chữ lớn hơn để làm nổi bật */
+}
+
 
 /* Định dạng cho nhóm form */
 .form-group {

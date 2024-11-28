@@ -3,9 +3,46 @@
     <div class="container-fluid">
         <app-admin-header></app-admin-header>
         <div class="main-content">
-            <div class="form-section">
-                <h2 class="section-title">Chi tiết về dịch vụ</h2>
-                <div class="header-actions">
+            <div class="form-section" *ngIf="service">
+                <h2 class="section-title"> Thông tin chi tiết về dịch vụ</h2>
+                <hr class="divider">
+                <h2>{{ service.name }}</h2>
+                <p><strong>Khoa chuyên môn:</strong> {{ service.specialty.name }}</p>
+                <p><strong>Giá dịch vụ:</strong> {{ service.price}}.000 VND</p>
+                <p><strong>Giá bảo hiểm:</strong> {{ service.insurancePrice}}.000 VND</p>
+
+                <h2 class="section-title"> Thống kê sử dụng dịch vụ</h2>
+                <hr class="divider">
+                <div class="search-box">
+                    <a>Tháng thống kê</a>
+                    <select class="form-control month"
+                        [(ngModel)]="month">
+                        <option *ngFor="let month of months" 
+                            [value]="month">
+                            {{ month }}
+                        </option>
+                    </select>
+                    <button class="btn btn-primary ml-2" (click)="searchMonth()">Tìm kiếm</button>
+                </div>     
+                
+                <table class="table user-table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Ngày</th>
+                            <th>Số lượng</th>
+                            <th>Tổng số tiền</th>
+                            <th>Tổng số tiền khi có bảo hiểm </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let statistic of statistics">
+                            <td>{{statistic.date}}</td>
+                            <td>{{statistic.totalServicesUsed}}</td>
+                            <td>{{totalPrice[statistic.date]}}</td>
+                            <td>{{totalInsurancePrice[statistic.date]}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

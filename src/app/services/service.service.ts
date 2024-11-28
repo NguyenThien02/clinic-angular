@@ -21,7 +21,7 @@ export class ServiceService {
             .set('specialty_id', selectedSpecialtyId)
             .set('page', page.toString())
             .set('limit', limit.toString());
-        return this.http.get<any[]>(this.apiServices, { params });
+        return this.http.get<any[]>(`${this.apiServices}/all`, { params });
     }
 
     getServicesByIds(selectServiceId: number[]){
@@ -38,5 +38,11 @@ export class ServiceService {
 
     updateService(id: number, serviceDTO: ServiceDTO){
         return this.http.put(`${this.apiServices}/${id}`, serviceDTO);
+    }
+
+    getServiceDetail(id: number, month: number){
+        const params = new HttpParams()
+            .set('month', month);
+        return this.http.get<any[]>(`${this.apiServices}/detail/${id}`,{ params });
     }
 }

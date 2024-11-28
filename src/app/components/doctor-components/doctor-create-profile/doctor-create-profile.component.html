@@ -7,6 +7,15 @@
                 <div class="breadcrumb">
                     <a routerLink="/doctor/schedule-manage">Schedule</a> / Profile
                 </div>
+                <h2 class="section-title">Thông tin hồ sơ</h2>
+                <hr class="divider">
+                <div class="form-infor" *ngIf="schedule">
+                    <p><strong>Tên bệnh nhân: </strong>{{schedule.user_name}}</p>
+                    <p><strong>Số ĐT bệnh nhân: </strong>{{schedule.user_phone}}</p>
+                    <p><strong>Ngày khám: </strong>{{schedule.date| date: 'dd-MM-yyyy' }}</p>
+                    <p><strong>Thời gian khám: </strong>{{schedule.time_slot.startEnd}}</p>
+                </div>
+                
                 <h2 class="section-title">Tạo hồ sơ bệnh án</h2>
                 <hr class="divider">
                 <div class="form-group">
