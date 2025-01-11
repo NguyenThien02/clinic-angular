@@ -85,10 +85,7 @@ import { AdminDetailServiceComponent } from './components/admin-components/admin
     UserGetScheduleComponent,
     UserGetProfileComponent,
     UserUpdateScheduleComponent,
-    UserDetailComponent,
-
-
-
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,

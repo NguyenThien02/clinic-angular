@@ -21,6 +21,7 @@ export class DoctorService {
       .set('specialty_id', selectedSpecialtyId);
     return this.http.get<any[]>(this.apiDoctor, { params });
   }
+  
   getDoctorByUserId(userId: number){
     return this.http.get(`${this.apiDoctor}/${userId}`)
   }
