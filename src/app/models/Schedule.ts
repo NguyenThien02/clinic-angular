@@ -1,4 +1,3 @@
-
 import { DoctorResponse } from "../responses/doctor.responses";
 import { UserResponse } from "../responses/user.responses";
 import { TimeSlot } from "./TimeSlot";
