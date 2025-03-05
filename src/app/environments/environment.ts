@@ -1,4 +1,4 @@
 export const environment = {
-    production: false,
-    apiBaseUrl: 'https://clinic-sjpj.onrender.com/api/clinic',
+    production: true,
+    apiBaseUrl: 'https://clinic-g9cc.onrender.com/api/clinic',
 };
