@@ -27,6 +27,6 @@
   ```
 - Chạy Container
   ```
-  docker run -d -p 5050:5050 --name angular-container angular-frontend
+  docker run -d -p 5050:80 --name angular-container angular-frontend
   ```
 - Địa chỉ truy cập ứng dụng frontend (client): http://localhost:5050/
