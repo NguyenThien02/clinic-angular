@@ -17,10 +17,6 @@
   ```
   git clone git@github.com:NguyenThien02/clinic-angular.git
   ```
-- cài đặt dependencies trong thư mục dự án Angular (nơi có file package.json)
-  ```
-  npm install
-  ```
 - Build Docker Image
   ```
   docker build -t angular-frontend .
